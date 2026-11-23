@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Método y lecturas · Préstamos multilaterales al Perú</title>
+<meta name="description" content="Cómo se leyeron 19 contratos de préstamo con un mismo cuestionario, cómo se midió la calidad, sus límites y las lecturas recomendadas.">
+<link rel="stylesheet" href="assets/estilos.css">
+</head>
+<body>
+<header class="barra"><div class="barra__in">
+  <a class="barra__sitio" href="index.html">Préstamos multilaterales al Perú</a>
+  <nav aria-label="Secciones">
+    <a href="index.html">Inicio</a>
+    <a href="simulador.html">Simulador</a>
+    <a href="datos.html">Datos</a>
+    <a href="pipeline.html">Cómo se hizo</a>
+    <a href="metodo.html" aria-current="page">Método y lecturas</a>
+  </nav>
+</div></header>
+
+<main>
+  <h1 style="font-size:28px">Método y lecturas</h1>
+  <p class="lead">Cómo se convirtieron contratos largos y distintos en una tabla comparable, qué tan confiable es y hasta dónde llega.</p>
+
+  <section class="seccion prosa">
+    <h2>1. La idea: el mismo cuestionario para todos los contratos</h2>
+    <p>El método viene de <a href="https://docs.aiddata.org/reports/how-china-lends.html" target="_blank" rel="noopener">«How China Lends»</a> (Gelpern, Horn, Morris, Parks y Trebesch, <i>Economic Policy</i>, 2023). Ese equipo leyó 100 contratos de deuda con una ficha fija y comparó cada cláusula con un contrato modelo. Aquí se adaptó así:</p>
+    <ul>
+      <li><b>El modelo</b> son las Normas Generales del BID y las General Conditions del Banco Mundial: iguales para todos los préstamos de una misma versión.</li>
+      <li><b>Lo negociado</b> está en las Estipulaciones Especiales (BID) y en el contrato con sus anexos (Banco Mundial). Ahí se concentra la lectura.</li>
+      <li><b>Cada respuesta</b> lleva la cita literal y la página. Un script comprueba que cada cita esté en esa página, palabra por palabra.</li>
+    </ul>
+  </section>
+
+  <section class="seccion">
+    <h2>2. La ficha: 67 preguntas en 9 bloques</h2>
+    <p class="sub">Cada pregunta tiene una definición, una regla para responder y dónde buscar en cada banco. <a href="data/ficha_v21.tsv">Descargar la ficha</a>.</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Bloque</th><th>Qué pregunta</th><th class="num">Preguntas</th></tr></thead>
+      <tbody>
+        <tr><td>A. Identificación</td><td>Préstamo, ejecutor, objeto, fechas, monto y versión de las condiciones generales</td><td class="num">10</td></tr>
+        <tr><td>B. Pago del capital</td><td>Plazo para desembolsar, primera y última cuota, número de cuotas y vida promedio</td><td class="num">8</td></tr>
+        <tr><td>C. Interés y comisiones</td><td>Tasa base, margen, comisiones de compromiso e inicial, gastos de supervisión</td><td class="num">8</td></tr>
+        <tr><td>D. Desembolso</td><td>Condiciones previas, entrada en vigencia, gastos anteriores a la firma, componentes</td><td class="num">10</td></tr>
+        <tr><td>E. Ejecución y compras</td><td>Políticas de compra, uso del sistema peruano, no objeción, plan de adquisiciones, aporte local, regla de origen</td><td class="num">18</td></tr>
+        <tr><td>F. Supervisión e influencia</td><td>Informes, auditoría, evaluaciones, causales de suspensión y otras obligaciones</td><td class="num">6</td></tr>
+        <tr><td>G. Garantías</td><td>Garante, traspaso de fondos, cuentas o fideicomisos de garantía</td><td class="num">3</td></tr>
+        <tr><td>H. Controversias</td><td>Cómo se resuelven las disputas</td><td class="num">1</td></tr>
+        <tr><td>I. Modificaciones</td><td>Cuántas enmiendas hubo, qué cambiaron y si ampliaron el plazo</td><td class="num">3</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="seccion prosa">
+    <h2>3. Cómo se aseguró la calidad</h2>
+    <ul>
+      <li><b>Dos lecturas independientes.</b> Un piloto con 5 contratos y, en cada tanda, una muestra de alrededor del 20 % la leyó un segundo lector que no vio la primera lectura. El acuerdo en el fondo fue de 94 % en el piloto, 98 % en la tanda del BID y 94 % en la del Banco Mundial. Casi todas las diferencias fueron de redacción. <a href="data/concordancia_muestras.tsv">Ver la comparación</a>.</li>
+      <li><b>Los desacuerdos se resolvieron como reglas.</b> Cuando dos lectores leían distinto la misma cláusula, el problema estaba en la pregunta. Se decidió una regla y se aplicó a todos los contratos. Así la ficha pasó de 56 a 67 preguntas. <a href="data/cambios_ficha.tsv">Ver cada cambio y quién lo decidió</a>.</li>
+      <li><b>Las citas se comprueban con un script.</b> Las 944 citas de la base están, palabra por palabra, en la página indicada. Los errores de tipeo del reconocimiento de texto (OCR) se copiaron tal cual.</li>
+      <li><b>Las fechas se contrastan con fuentes oficiales.</b> Las fechas de aprobación que se dedujeron de los contratos coinciden con los datos abiertos del BID en todos los casos comparables. Las fechas de cierre real vienen de la API pública del Banco Mundial.</li>
+    </ul>
+  </section>
+
+  <section class="seccion prosa">
+    <h2>4. Qué significa cada estado</h2>
+    <ul>
+      <li><span class="estado dato">dato</span> lo dice el contrato.</li>
+      <li><span class="estado calculado">calculado</span> sale de una cuenta con datos del contrato. Ejemplo: el número de cuotas contado en el cronograma.</li>
+      <li><span class="estado remite">remite</span> el contrato no da la cifra y dice quién o dónde se fija. Ejemplo: «lo fija el banco según su política».</li>
+      <li><span class="estado metadato">metadato</span> viene de una fuente oficial externa: la tabla base, los datos abiertos del BID o la API del Banco Mundial.</li>
+      <li><span class="estado">0</span> se revisó y no está. <span class="estado">NA</span> no se puede saber. <span class="estado">no aplica</span> la pregunta no corresponde a ese contrato.</li>
+    </ul>
+  </section>
+
+  <section class="seccion prosa">
+    <h2>5. Límites</h2>
+    <ul>
+      <li><b>No es una muestra al azar.</b> Solo el BID y el Banco Mundial publican sus contratos. La CAF, el KfW, JICA y la AFD no los publican; de ellos solo hay decretos supremos con las condiciones financieras.</li>
+      <li><b>Muchos archivos rotulados «contrato» no lo eran.</b> De 133 archivos del BID con ese nombre, solo 15 eran contratos. Los demás eran propuestas de préstamo, resoluciones del Directorio o informes de seguimiento.</li>
+      <li><b>Las condiciones generales y los planes no están en los contratos.</b> Lo que remite a ellos se marca como «remite» y no se completa con conocimiento externo.</li>
+      <li><b>Las reestructuraciones del Banco Mundial no están en el corpus.</b> Por eso la ampliación de los plazos se mide con la fecha de cierre real de la API.</li>
+      <li><b>Faltan contratos.</b> Quedan 13 préstamos de inversión del Banco Mundial de 2017 a 2026, 5 escaneados sin texto y 5 contratos del piloto por recodificar con la ficha final.</li>
+      <li><b>Lectura con inteligencia artificial.</b> Los contratos los leyeron agentes de IA (Claude) con una ficha fija. El autor tomó las decisiones de método. Las citas se verifican con un script, pero la interpretación jurídica de cada cláusula debe confirmarla un especialista.</li>
+    </ul>
+  </section>
+
+  <section class="seccion prosa">
+    <h2>6. Lecturas recomendadas</h2>
+    <h3>Las reglas de cada banco</h3>
+    <ul>
+      <li>BID, <a href="https://www.iadb.org/es/como-trabajar-juntos/sector-publico/ofertas-de-financiamiento/condiciones-financieras" target="_blank" rel="noopener">condiciones financieras</a>: la tasa basada en SOFR, el margen y las comisiones vigentes.</li>
+      <li>Banco Mundial, <a href="https://projects.worldbank.org/en/about/unit/treasury/ibrd-financial-products/lending-rates-and-fees" target="_blank" rel="noopener">tasas y comisiones del BIRF</a> y la <a href="https://thedocs.worldbank.org/en/doc/494451541196179855-0340022018/original/productnoteIFLpricingbasicsOct2020.pdf" target="_blank" rel="noopener">nota de precios del préstamo flexible</a>.</li>
+      <li>JICA, <a href="https://www.jica.go.jp/english/activities/schemes/finance_co/standard/1585812_16333.html" target="_blank" rel="noopener">condiciones de los préstamos AOD japoneses</a>. KfW, <a href="https://www.kfw-entwicklungsbank.de/Service/Procurement-Regulations/" target="_blank" rel="noopener">reglas de adquisiciones</a>.</li>
+    </ul>
+    <h3>Precios, competencia e influencia</h3>
+    <ul>
+      <li>Humphrey (2014), <a href="https://ideas.repec.org/a/taf/rripxx/v21y2014i3p611-639.html" target="_blank" rel="noopener">«The politics of loan pricing in multilateral development banks»</a>, <i>Review of International Political Economy</i>. Compara el BM, el BID y la CAF.</li>
+      <li>Humphrey y Michaelowa (2013), <a href="https://ideas.repec.org/a/eee/wdevel/v44y2013icp142-155.html" target="_blank" rel="noopener">«Shopping for development»</a>, <i>World Development</i>. Por qué los países de América Latina eligen un banco u otro.</li>
+      <li>Bunte (2019), <a href="https://academic.oup.com/book/11158" target="_blank" rel="noopener"><i>Raise the Debt: How Developing Countries Choose Their Creditors</i></a>, Oxford University Press.</li>
+      <li>Cordella y Powell (2021), <a href="https://documents1.worldbank.org/curated/en/578451563797490303/pdf/Preferred-and-Non-Preferred-Creditors.pdf" target="_blank" rel="noopener">«Preferred and non-preferred creditors»</a>. Por qué la banca multilateral presta barato.</li>
+      <li>Morris, Parks y Gardner (2020), <a href="https://cgdev.org/publication/chinese-and-world-bank-lending-terms-systematic-comparison" target="_blank" rel="noopener">comparación de condiciones entre China y el Banco Mundial</a>, CGD.</li>
+      <li>Martínez-Zarzoso y otros (2009), <a href="https://econpapers.repec.org/RePEc:bla:germec:v:10:y:2009:i:3:p:317-338" target="_blank" rel="noopener">«Does German development aid promote German exports?»</a>, <i>German Economic Review</i>.</li>
+    </ul>
+    <h3>Sobre el Perú</h3>
+    <ul>
+      <li>Evaluaciones independientes del BID (OVE): <a href="https://publications.iadb.org/es/publicacion/17210/evaluacion-del-programa-de-pais-peru-2012-2016" target="_blank" rel="noopener">Perú 2012-2016</a>, <a href="https://publications.iadb.org/publications/english/document/Independent-Country-Program-Review-Peru-2017-2021.pdf" target="_blank" rel="noopener">revisión 2017-2021</a> y <a href="https://publications.iadb.org/es/documento-de-enfoque-evaluacion-extendida-de-programa-pais-peru-2017-2026" target="_blank" rel="noopener">enfoque 2017-2026</a>.</li>
+      <li>BID (2026), <a href="https://publications.iadb.org/publications/spanish/document/Disenados-para-tener-exito-disenados-para-fracasar-determinantes-y-opciones-de-reforma-para-la-ejecucion-de-la-inversion-publica-local-en-el-Peru.pdf" target="_blank" rel="noopener">«Diseñados para tener éxito, diseñados para fracasar»</a>, sobre la ejecución de la inversión pública local.</li>
+      <li>OCDE (2023), <a href="https://www.oecd.org/es/publications/2023/02/public-financial-management-in-peru_b83e637c/full-report/component-9.html" target="_blank" rel="noopener"><i>Public Financial Management in Peru</i></a>.</li>
+    </ul>
+  </section>
+
+  <section class="seccion prosa">
+    <h2>7. Cómo reproducirlo</h2>
+    <p>Los scripts están en la carpeta <a href="https://github.com/diegosimemirror/loan/tree/main/scripts">scripts</a> del repositorio y las instrucciones que recibieron los agentes, en <a href="https://github.com/diegosimemirror/loan/tree/main/metodo">metodo</a>. En orden:</p>
+    <ol>
+      <li><code>extrae_paginas.sh</code> convierte cada PDF a texto con marcadores de página.</li>
+      <li>La lectura sigue la ficha y las instrucciones de <code>metodo/encargo_agentes_v21.md</code>.</li>
+      <li><code>verifica_citas_v2.py</code> comprueba que cada cita esté en su página.</li>
+      <li><code>compara_v21.py</code> mide el acuerdo entre dos lecturas.</li>
+      <li><code>aplica_v21.py</code> y <code>aplica_t2.py</code> aplican las decisiones y agregan las fechas oficiales.</li>
+    </ol>
+  </section>
+</main>
+
+<footer class="pie"><div class="pie__in">
+  <span>Diego Sime · con Claude Code · 22-11-2026</span>
+  <span>Código: licencia MIT · Datos y textos: CC BY 4.0</span>
+  <a href="https://github.com/diegosimemirror/loan">Repositorio</a>
+</div></footer>
+</body>
+</html>

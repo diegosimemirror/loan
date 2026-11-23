@@ -1,0 +1,267 @@
+muestra	contrato	id	variable	veredicto	valor_1	estado_1	valor_2	estado_2
+tanda 1 (BID)	BID-PE-L1026	A01	código de operación	coincide	PE-L1026	metadato	PE-L1026	metadato
+tanda 1 (BID)	BID-PE-L1026	A02	número de préstamo	coincide	3370/OC-PE	dato	3370/OC-PE	dato
+tanda 1 (BID)	BID-PE-L1026	A03	prestatario	coincide	República del Perú	dato	República del Perú	dato
+tanda 1 (BID)	BID-PE-L1026	A04	organismo ejecutor	parcial (texto)	Ministerio de Agricultura y Riego (MINAGRI), a través del Programa de Desarrollo Productivo Agrario Rural (AGRO RURAL) como Unidad Ejecutora; Unidad Coordinadora del Proyecto (UCP)	dato	Ministerio de Agricultura y Riego (MINAGRI), a través del Programa de Desarrollo Productivo Agrario-Rural (AGRO RURAL)	dato
+tanda 1 (BID)	BID-PE-L1026	A05	sector u objeto	parcial (texto)	Catastro, titulación y registro de tierras rurales (PTRT3): formalización de la propiedad rural	dato	Catastro, titulación y registro de tierras rurales (formalización de la propiedad rural), PTRT3	dato
+tanda 1 (BID)	BID-PE-L1026	A06	fecha de aprobación del banco	coincide	2014-12-03	calculado	2014-12-03	calculado
+tanda 1 (BID)	BID-PE-L1026	A07	fecha de firma	coincide	2015-02-13	dato	2015-02-13	dato
+tanda 1 (BID)	BID-PE-L1026	A08	monto del préstamo	coincide	40000000	dato	40000000	dato
+tanda 1 (BID)	BID-PE-L1026	A09	moneda	coincide	USD	dato	USD	dato
+tanda 1 (BID)	BID-PE-L1026	A10	condiciones generales aplicables	coincide	Normas Generales, abril de 2014	dato	Normas Generales, abril de 2014	dato
+tanda 1 (BID)	BID-PE-L1026	B01	plazo para desembolsar	coincide	5 años desde la vigencia del contrato	dato	5 años desde la vigencia del Contrato	dato
+tanda 1 (BID)	BID-PE-L1026	B02	fecha de la primera cuota de capital	coincide	2020-04-15	calculado	2020-04-15	calculado
+tanda 1 (BID)	BID-PE-L1026	B03	fecha de la última cuota de capital	coincide	2030-04-15	dato	2030-04-15	dato
+tanda 1 (BID)	BID-PE-L1026	B04	número de cuotas	coincide	21	calculado	21	calculado
+tanda 1 (BID)	BID-PE-L1026	B05	frecuencia de las cuotas	coincide	semestral	dato	semestral	dato
+tanda 1 (BID)	BID-PE-L1026	B06	vida promedio ponderada (VPP)	coincide	10.17	dato	10.17	dato
+tanda 1 (BID)	BID-PE-L1026	B07	perfil de amortización	coincide	cuotas iguales	dato	cuotas iguales	dato
+tanda 1 (BID)	BID-PE-L1026	B08	opciones de conversión o cobertura	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1026	C01	tasa base	parcial (texto)	LIBOR (USD a 3 meses), según el Art. 3.03 de las NG	dato	LIBOR (USD-LIBOR-ICE a 3 meses) más costo de fondeo; remite a NG art. 3.03	dato
+tanda 1 (BID)	BID-PE-L1026	C02	tipo de margen	parcial (texto)	costo de fondeo + margen: LIBOR + Costo de Fondeo del Banco + margen aplicable para préstamos del capital ordinario	dato	costo de fondeo + margen variable fijado por el banco (margen aplicable a préstamos del capital ordinario)	dato
+tanda 1 (BID)	BID-PE-L1026	C03	valor del margen	coincide	lo fija el banco según su política	remite	lo fija el banco según su política	remite
+tanda 1 (BID)	BID-PE-L1026	C03b	margen vigente al firmar (fuente externa)	coincide		NA		NA
+tanda 1 (BID)	BID-PE-L1026	C04	frecuencia de pago de intereses	parcial (texto)	semestral, los días 15 de abril y 15 de octubre	dato	semestral (15 de abril y 15 de octubre)	dato
+tanda 1 (BID)	BID-PE-L1026	C05	comisión de compromiso o de crédito	coincide	0.75	dato	0.75	dato
+tanda 1 (BID)	BID-PE-L1026	C06	comisión inicial (front-end fee)	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1026	C07	gastos de inspección y vigilancia	coincide	solo si el banco lo decide	dato	solo si el banco lo decide	dato
+tanda 1 (BID)	BID-PE-L1026	D01	condiciones previas al primer desembolso	parcial (texto)	UCP conformada; Coordinador General y coordinadores de componentes contratados; selección concluida de especialistas ambiental, social, de adquisiciones, de finanzas y de monitoreo; Comité de Gestión establecido; instancia de participación ciudadana consultiva nacional establecida; MOP aprobado con borradores de convenios; transferencia legal del catastro rural a la Dirección de Saneamiento de la Propiedad Agraria y Catastro Rural; propuesta de cambio normativo sobre clasificación de tierras por capacidad de uso mayor	dato	UCP conformada; Coordinador General y coordinadores de componentes contratados; selección concluida de los especialistas ambiental, social, de adquisiciones, de finanzas y de monitoreo; Comité de Gestión establecido; instancia de participación ciudadana consultiva nacional establecida; MOP aprobado (con borradores de convenios); evidencia de que la responsabilidad del catastro rural pasó legal y formalmente a la Dirección de Saneamiento de la Propiedad Agraria y Catastro Rural (antes de desembolsar para el Componente 2); propuesta de cambio normativo sobre la metodología de clasificación de tierras por capacidad de uso mayor (antes de desembolsar para el Componente 1 en Selva y Ceja de Selva)	dato
+tanda 1 (BID)	BID-PE-L1026	D02	número de condiciones previas especiales	coincide	8	calculado	8	calculado
+tanda 1 (BID)	BID-PE-L1026	D02b	alcance de las condiciones previas	parcial (texto)	todo el préstamo; todo el préstamo; todo el préstamo; todo el préstamo; todo el préstamo; todo el préstamo; Componente 2 (actividades de los párrafos 2.07 y 2.08 del Anexo); Componente 1 en zonas de Selva y Ceja de Selva	dato	todo el préstamo; todo el préstamo; todo el préstamo; todo el préstamo; todo el préstamo; todo el préstamo; componente 2; componente 1 (zonas de Selva y Ceja de Selva)	dato
+tanda 1 (BID)	BID-PE-L1026	D03	condiciones de entrada en vigencia	coincide	con la firma	dato	con la firma	dato
+tanda 1 (BID)	BID-PE-L1026	D04	plazo para cumplir condiciones o entrar en vigencia	coincide	180 días desde la vigencia	dato	180 días desde la vigencia	dato
+tanda 1 (BID)	BID-PE-L1026	D05	financiamiento retroactivo o reconocimiento de gastos	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1026	D06	anticipo de fondos o cuenta designada	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1026	D07	número de componentes o categorías	coincide	3	dato	3	dato
+tanda 1 (BID)	BID-PE-L1026	D08	plazo para iniciar obras	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1026	E01	política de adquisiciones de bienes y obras	coincide	GN-2349-9, marzo de 2011	dato	GN-2349-9, marzo de 2011	dato
+tanda 1 (BID)	BID-PE-L1026	E02	política de consultores	coincide	GN-2350-9, marzo de 2011	dato	GN-2350-9, marzo de 2011	dato
+tanda 1 (BID)	BID-PE-L1026	E03a	uso del sistema o subsistema de país	coincide	parcial	dato	parcial	dato
+tanda 1 (BID)	BID-PE-L1026	E03b	licitación pública nacional (LPN)	coincide	parcial	dato	parcial	dato
+tanda 1 (BID)	BID-PE-L1026	E03c	umbral de licitación internacional	coincide	www.iadb.org/procurement	remite	www.iadb.org/procurement	remite
+tanda 1 (BID)	BID-PE-L1026	E04	plan de adquisiciones aprobado por el banco	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1026	E05a	dónde se define la revisión previa (no objeción)	coincide	Plan de Adquisiciones	dato	Plan de Adquisiciones	dato
+tanda 1 (BID)	BID-PE-L1026	E05b	umbrales de revisión previa	coincide	según el Plan de Adquisiciones	remite	según el Plan de Adquisiciones	remite
+tanda 1 (BID)	BID-PE-L1026	E05c	actualización del plan de adquisiciones	parcial (texto)	al menos anual o con mayor frecuencia según las necesidades del Proyecto, con aprobación del banco	dato	al menos anual, con aprobación del banco	dato
+tanda 1 (BID)	BID-PE-L1026	E05d	sistema de seguimiento del plan	coincide	el que determine el banco	dato	el que determine el banco	dato
+tanda 1 (BID)	BID-PE-L1026	E06	aporte local (monto)	coincide	40000000	dato	40000000	dato
+tanda 1 (BID)	BID-PE-L1026	E07	aporte local (% del costo total)	coincide	50.0	calculado	50.0	calculado
+tanda 1 (BID)	BID-PE-L1026	E08	cofinanciamiento paralelo	coincide	no	0	no	0
+tanda 1 (BID)	BID-PE-L1026	E09	manual operativo	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1026	E10	instrumento ambiental y social	parcial (texto)	PGAS y políticas ambientales y sociales del banco	dato	Plan de Gestión Ambiental y Social (PGAS); políticas ambientales y sociales del Banco	dato
+tanda 1 (BID)	BID-PE-L1026	E11	unidad ejecutora y personal exigido	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1026	E12	condiciones especiales de adquisición	parcial (texto)	convenios UE–Gobiernos Regionales vigentes antes de licitar los servicios de titulación en su jurisdicción; estudio de mercado de costos unitarios por título antes de contratar a las empresas del Componente 1	dato	convenios UE–Gobiernos Regionales vigentes antes de licitar los servicios de titulación de predios individuales; estudio de mercado de costos unitarios por título antes de contratar a las empresas especializadas	dato
+tanda 1 (BID)	BID-PE-L1026	E13	elegibilidad por origen	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1026	F01	informes de progreso	coincide	semestral	dato	semestral	dato
+tanda 1 (BID)	BID-PE-L1026	F02a	auditoría: frecuencia y plazo	parcial (texto)	anual: 120 días tras el cierre de cada ejercicio económico, durante el plazo de desembolsos o sus extensiones; el último, 120 días tras su vencimiento	dato	anual, 120 días tras el cierre de cada ejercicio económico, durante el Plazo Original de Desembolso o sus extensiones; el último, 120 días tras el vencimiento de ese plazo	dato
+tanda 1 (BID)	BID-PE-L1026	F02b	auditoría: quién audita	coincide	firma de auditoría independiente aceptable al banco	dato	firma de auditoría independiente aceptable al banco	dato
+tanda 1 (BID)	BID-PE-L1026	F03	evaluación de resultados	parcial (texto)	evaluación intermedia (90 días tras ejecutar el 50 % de los recursos del préstamo); evaluación final (90 días tras ejecutar el 90 %), ambas independientes; informe de evaluación ex post de resultados	dato	evaluación intermedia (90 días tras ejecutar el 50 %); evaluación final (90 días tras ejecutar el 90 %); evaluación ex post	dato
+tanda 1 (BID)	BID-PE-L1026	F04	causales especiales de suspensión o vencimiento anticipado	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1026	F05	otras obligaciones especiales	parcial (texto)	convenios UE–IGN–SUNARP vigentes antes de ejecutar el Componente 1; mantener bienes, obras, equipos y software e informar durante 1 año tras la ejecución; plan de ejecución del Proyecto actualizado; POA anual presentado en el último trimestre de cada año	dato	mantenimiento de bienes, obras, equipos y software e informe anual de mantenimiento; convenios UE–IGN–SUNARP vigentes antes de ejecutar el Componente 1; Plan Operativo Anual (POA) a satisfacción del banco	dato
+tanda 1 (BID)	BID-PE-L1026	G01	garante	coincide	no	0	no	0
+tanda 1 (BID)	BID-PE-L1026	G02	convenio de traspaso de recursos	coincide	no	0	no	0
+tanda 1 (BID)	BID-PE-L1026	G03	cuenta o fideicomiso como garantía	coincide	no	0	no	0
+tanda 1 (BID)	BID-PE-L1026	H01	solución de controversias	parcial (texto)	arbitraje (Tribunal de Arbitraje; Cl. 7.01 y Cap. X de las NG)	dato	arbitraje (Tribunal de Arbitraje, NG cap. X)	dato
+tanda 1 (BID)	BID-PE-L1026	I01	número de modificaciones	difiere (estado)	0	metadato	0	0
+tanda 1 (BID)	BID-PE-L1026	I02	qué cambian las modificaciones	coincide		0		0
+tanda 1 (BID)	BID-PE-L1026	I03	extensión del plazo para desembolsar	coincide	no	0	no	0
+tanda 1 (BID)	BID-PE-L1254	A01	código de operación	coincide	PE-L1254	metadato	PE-L1254	metadato
+tanda 1 (BID)	BID-PE-L1254	A02	número de préstamo	coincide	5249/OC-PE	dato	5249/OC-PE	dato
+tanda 1 (BID)	BID-PE-L1254	A03	prestatario	coincide	República del Perú	dato	República del Perú	dato
+tanda 1 (BID)	BID-PE-L1254	A04	organismo ejecutor	coincide	Corporación Financiera de Desarrollo S.A. (COFIDE)	dato	Corporación Financiera de Desarrollo S.A. (COFIDE)	dato
+tanda 1 (BID)	BID-PE-L1254	A05	sector u objeto	parcial (texto)	Transporte eléctrico: crédito de largo plazo para vehículos eléctricos y estaciones de carga	dato	Transporte eléctrico: financiamiento de soluciones sostenibles (vehículos eléctricos y estaciones de carga)	dato
+tanda 1 (BID)	BID-PE-L1254	A06	fecha de aprobación del banco	coincide	DE-26/21	remite	DE-26/21	remite
+tanda 1 (BID)	BID-PE-L1254	A07	fecha de firma	coincide	2021-07-09	dato	2021-07-09	dato
+tanda 1 (BID)	BID-PE-L1254	A08	monto del préstamo	coincide	10500000	dato	10500000	dato
+tanda 1 (BID)	BID-PE-L1254	A09	moneda	coincide	USD	dato	USD	dato
+tanda 1 (BID)	BID-PE-L1254	A10	condiciones generales aplicables	parcial (texto)	Normas Generales, enero 2020	dato	Normas Generales, enero de 2020	dato
+tanda 1 (BID)	BID-PE-L1254	B01	plazo para desembolsar	parcial (texto)	5 años desde la vigencia del contrato (mismo plazo para comprometer los recursos)	dato	5 años desde la vigencia del Contrato	dato
+tanda 1 (BID)	BID-PE-L1254	B02	fecha de la primera cuota de capital	coincide	2027-09-15	dato	2027-09-15	dato
+tanda 1 (BID)	BID-PE-L1254	B03	fecha de la última cuota de capital	coincide	2041-09-15	dato	2041-09-15	dato
+tanda 1 (BID)	BID-PE-L1254	B04	número de cuotas	coincide	29	calculado	29	calculado
+tanda 1 (BID)	BID-PE-L1254	B05	frecuencia de las cuotas	coincide	semestral	dato	semestral	dato
+tanda 1 (BID)	BID-PE-L1254	B06	vida promedio ponderada (VPP)	coincide	13.20	dato	13.20	dato
+tanda 1 (BID)	BID-PE-L1254	B07	perfil de amortización	coincide	cuotas iguales	dato	cuotas iguales	dato
+tanda 1 (BID)	BID-PE-L1254	B08	opciones de conversión o cobertura	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1254	C01	tasa base	parcial (texto)	LIBOR: tasa basada en LIBOR (LIBOR en dólares a 3 meses + costo de fondeo del banco); remite a NG art. 3.03	dato	LIBOR (USD-LIBOR-ICE a 3 meses) más costo de fondeo; remite a NG art. 3.03	dato
+tanda 1 (BID)	BID-PE-L1254	C02	tipo de margen	parcial (texto)	variable fijado por el banco: tasa basada en LIBOR (incluye costo de fondeo) + margen aplicable para préstamos del capital ordinario	dato	costo de fondeo + margen variable fijado por el banco (margen aplicable a préstamos del capital ordinario)	dato
+tanda 1 (BID)	BID-PE-L1254	C03	valor del margen	coincide	lo fija el banco según su política	remite	lo fija el banco según su política	remite
+tanda 1 (BID)	BID-PE-L1254	C03b	margen vigente al firmar (fuente externa)	coincide		NA		NA
+tanda 1 (BID)	BID-PE-L1254	C04	frecuencia de pago de intereses	parcial (texto)	semestral (primer pago a los 6 meses de la vigencia, el día 15)	dato	semestral; primer pago a los 6 meses de la vigencia (día 15)	dato
+tanda 1 (BID)	BID-PE-L1254	C05	comisión de compromiso o de crédito	coincide	0.75	dato	0.75	dato
+tanda 1 (BID)	BID-PE-L1254	C06	comisión inicial (front-end fee)	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1254	C07	gastos de inspección y vigilancia	coincide	solo si el banco lo decide	dato	solo si el banco lo decide	dato
+tanda 1 (BID)	BID-PE-L1254	D01	condiciones previas al primer desembolso	parcial (texto)	acuerdo vigente entre el Prestatario y COFIDE sobre cómo se transfieren los recursos y las obligaciones del Organismo Ejecutor; ROP aprobado por COFIDE y vigente, en términos aprobados por el banco	dato	acuerdo Prestatario–COFIDE suscrito y vigente (forma de transferir los recursos y obligaciones del Organismo Ejecutor); ROP aprobado por el Organismo Ejecutor y vigente, en términos aprobados por el Banco	dato
+tanda 1 (BID)	BID-PE-L1254	D02	número de condiciones previas especiales	coincide	2	calculado	2	calculado
+tanda 1 (BID)	BID-PE-L1254	D02b	alcance de las condiciones previas	coincide	todo el préstamo; todo el préstamo	dato	todo el préstamo; todo el préstamo	dato
+tanda 1 (BID)	BID-PE-L1254	D03	condiciones de entrada en vigencia	parcial (texto)	con la firma del Prestatario	dato	con la firma (del Prestatario)	dato
+tanda 1 (BID)	BID-PE-L1254	D04	plazo para cumplir condiciones o entrar en vigencia	difiere (valor)	180 días desde la vigencia para cumplir las condiciones previas al primer desembolso	dato	180 días desde la vigencia	dato
+tanda 1 (BID)	BID-PE-L1254	D05	financiamiento retroactivo o reconocimiento de gastos	coincide	no	0	no	0
+tanda 1 (BID)	BID-PE-L1254	D06	anticipo de fondos o cuenta designada	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1254	D07	número de componentes o categorías	coincide	1	dato	1	dato
+tanda 1 (BID)	BID-PE-L1254	D08	plazo para iniciar obras	coincide	no aplica	no aplica	no aplica	no aplica
+tanda 1 (BID)	BID-PE-L1254	E01	política de adquisiciones de bienes y obras	parcial (texto)	Políticas de Adquisiciones del BID vigentes al aprobarse el préstamo (sin código ni fecha en el contrato)	remite	Políticas para la Adquisición de Bienes y Obras Financiados por el BID vigentes al aprobarse el préstamo (sin código ni fecha)	remite
+tanda 1 (BID)	BID-PE-L1254	E02	política de consultores	parcial (texto)	Políticas de Consultores del BID vigentes al aprobarse el préstamo (sin código ni fecha en el contrato)	remite	Políticas para la Selección y Contratación de Consultores Financiados por el BID vigentes al aprobarse el préstamo (sin código ni fecha)	remite
+tanda 1 (BID)	BID-PE-L1254	E03a	uso del sistema o subsistema de país	coincide	parcial	dato	parcial	dato
+tanda 1 (BID)	BID-PE-L1254	E03b	licitación pública nacional (LPN)	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1254	E03c	umbral de licitación internacional	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1254	E04	plan de adquisiciones aprobado por el banco	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1254	E05a	dónde se define la revisión previa (no objeción)	coincide	Plan de Adquisiciones	dato	Plan de Adquisiciones	dato
+tanda 1 (BID)	BID-PE-L1254	E05b	umbrales de revisión previa	coincide	según el Plan de Adquisiciones	remite	según el Plan de Adquisiciones	remite
+tanda 1 (BID)	BID-PE-L1254	E05c	actualización del plan de adquisiciones	coincide	al menos anual, con aprobación del banco	dato	al menos anual, con aprobación del banco	dato
+tanda 1 (BID)	BID-PE-L1254	E05d	sistema de seguimiento del plan	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1254	E06	aporte local (monto)	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1254	E07	aporte local (% del costo total)	coincide	0.0	calculado	0.0	calculado
+tanda 1 (BID)	BID-PE-L1254	E08	cofinanciamiento paralelo	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1254	E09	manual operativo	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1254	E10	instrumento ambiental y social	parcial (texto)	salvaguardias ambientales y sociales del ROP (políticas sociales y ambientales del banco aplicables a los subprestatarios)	dato	políticas sociales y ambientales del Banco según el ROP; salvaguardias ambientales y sociales en el ROP	dato
+tanda 1 (BID)	BID-PE-L1254	E11	unidad ejecutora y personal exigido	coincide	no	dato	no	dato
+tanda 1 (BID)	BID-PE-L1254	E12	condiciones especiales de adquisición	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1254	E13	elegibilidad por origen	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1254	F01	informes de progreso	difiere (valor)	semestral (más un informe final)	dato	semestral	dato
+tanda 1 (BID)	BID-PE-L1254	F02a	auditoría: frecuencia y plazo	parcial (texto)	anual; 120 días tras el cierre del ejercicio económico del Prestatario (el último, tras el ejercicio del último desembolso)	dato	anual, 120 días tras el cierre del ejercicio económico del Prestatario; el último, 120 días tras el cierre del ejercicio del último desembolso	dato
+tanda 1 (BID)	BID-PE-L1254	F02b	auditoría: quién audita	coincide	firma de auditoría independiente aceptable al banco	dato	firma de auditoría independiente aceptable al banco	dato
+tanda 1 (BID)	BID-PE-L1254	F03	evaluación de resultados	parcial (texto)	evaluación de medio término (a los 30 meses del primer desembolso o al comprometer el 50 %); evaluación final (90 días después de desembolsar el 95 %); evaluación ex post (al desembolsar el 75 %)	dato	evaluación de medio término (30 meses tras el primer desembolso o 50 % comprometido, lo que ocurra primero); evaluación final (90 días tras desembolsar el 95 %); evaluación ex post (al 75 % desembolsado)	dato
+tanda 1 (BID)	BID-PE-L1254	F04	causales especiales de suspensión o vencimiento anticipado	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1254	F05	otras obligaciones especiales	parcial (texto)	límites y exclusiones de los subpréstamos; 7 condiciones mínimas de los subpréstamos; subpréstamos libres de gravamen y no cedibles sin aceptación del Prestatario y del banco; recuperaciones solo para nuevos subpréstamos; presupuesto de desembolsos con el informe semestral	dato	límites por beneficiario y exclusiones de uso de los sub-préstamos; condiciones mínimas de los sub-préstamos; sub-préstamos libres de gravamen y no cesibles sin aceptación previa; recuperaciones solo para nuevos sub-préstamos	dato
+tanda 1 (BID)	BID-PE-L1254	G01	garante	coincide	no	0	no	0
+tanda 1 (BID)	BID-PE-L1254	G02	convenio de traspaso de recursos	coincide	sí	dato	sí	dato
+tanda 1 (BID)	BID-PE-L1254	G03	cuenta o fideicomiso como garantía	coincide	no	0	no	0
+tanda 1 (BID)	BID-PE-L1254	H01	solución de controversias	parcial (texto)	arbitraje (Cl. 6.03; NG cap. XII)	dato	arbitraje (tribunal de arbitraje, NG cap. XII)	dato
+tanda 1 (BID)	BID-PE-L1254	I01	número de modificaciones	coincide	0	0	0	0
+tanda 1 (BID)	BID-PE-L1254	I02	qué cambian las modificaciones	coincide		0		0
+tanda 1 (BID)	BID-PE-L1254	I03	extensión del plazo para desembolsar	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-7961	A01	código de operación	coincide	P117310	metadato	P117310	metadato
+tanda 2 (BIRF)	BIRF-7961	A02	número de préstamo	coincide	7961-PE	dato	7961-PE	dato
+tanda 2 (BIRF)	BIRF-7961	A03	prestatario	parcial (texto)	República del Perú	dato	República del Perú (Republic of Perú)	dato
+tanda 2 (BIRF)	BIRF-7961	A04	organismo ejecutor	parcial (texto)	República del Perú, a través de la DGPP (coordinador técnico) y la UCPS (coordinador administrativo) del MEF; con participación de Juntos (Parte 1), Gobiernos Regionales (Parte 2), SIS e INEI (Parte 3)	dato	República del Perú (MEF) a través de la DGPP (coordinador técnico) y la UCPS (coordinador administrativo); con participación de Juntos, Gobiernos Regionales, SIS e INEI	dato
+tanda 2 (BIRF)	BIRF-7961	A05	sector u objeto	parcial (texto)	nutrición: aumentar la demanda de servicios de nutrición fortaleciendo Juntos y mejorar la cobertura y calidad de los servicios básicos preventivos de salud y nutrición (Programa Articulado Nutricional)	dato	Nutrición: aumentar la demanda de servicios de nutrición fortaleciendo Juntos y mejorar la cobertura y calidad de los servicios básicos preventivos de salud y nutrición	dato
+tanda 2 (BIRF)	BIRF-7961	A06	fecha de aprobación del banco	coincide	2011-03-08	calculado	2011-03-08	calculado
+tanda 2 (BIRF)	BIRF-7961	A07	fecha de firma	coincide	2011-07-05	dato	2011-07-05	dato
+tanda 2 (BIRF)	BIRF-7961	A08	monto del préstamo	coincide	25000000	dato	25000000	dato
+tanda 2 (BIRF)	BIRF-7961	A09	moneda	coincide	USD	dato	USD	dato
+tanda 2 (BIRF)	BIRF-7961	A10	condiciones generales aplicables	coincide	International Bank for Reconstruction and Development General Conditions for Loans, dated July 31, 2010	dato	International Bank for Reconstruction and Development General Conditions for Loans, dated July 31, 2010	dato
+tanda 2 (BIRF)	BIRF-7961	B01	plazo para desembolsar	coincide	2016-03-31	dato	2016-03-31	dato
+tanda 2 (BIRF)	BIRF-7961	B02	fecha de la primera cuota de capital	coincide	2029-02-15	dato	2029-02-15	dato
+tanda 2 (BIRF)	BIRF-7961	B03	fecha de la última cuota de capital	coincide	2029-02-15	dato	2029-02-15	dato
+tanda 2 (BIRF)	BIRF-7961	B04	número de cuotas	coincide	1	calculado	1	calculado
+tanda 2 (BIRF)	BIRF-7961	B05	frecuencia de las cuotas	difiere (valor)	otra (pago único al vencimiento)	dato	otra (una sola cuota)	dato
+tanda 2 (BIRF)	BIRF-7961	B06	vida promedio ponderada (VPP)	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-7961	B07	perfil de amortización	coincide	una sola cuota	dato	una sola cuota	dato
+tanda 2 (BIRF)	BIRF-7961	B08	opciones de conversión o cobertura	coincide	sí	dato	sí	dato
+tanda 2 (BIRF)	BIRF-7961	C01	tasa base	coincide	Reference Rate	dato	Reference Rate	dato
+tanda 2 (BIRF)	BIRF-7961	C02	tipo de margen	coincide	Variable Spread	dato	Variable Spread	dato
+tanda 2 (BIRF)	BIRF-7961	C03	valor del margen	coincide	lo fija el banco según su política	remite	lo fija el banco según su política	remite
+tanda 2 (BIRF)	BIRF-7961	C03b	margen vigente al firmar (fuente externa)	coincide		NA		NA
+tanda 2 (BIRF)	BIRF-7961	C04	frecuencia de pago de intereses	coincide	semestral (15 de febrero y 15 de agosto)	dato	semestral (15 de febrero y 15 de agosto)	dato
+tanda 2 (BIRF)	BIRF-7961	C05	comisión de compromiso o de crédito	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-7961	C06	comisión inicial (front-end fee)	coincide	0.25	dato	0.25	dato
+tanda 2 (BIRF)	BIRF-7961	C07	gastos de inspección y vigilancia	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-7961	D01	condiciones previas al primer desembolso	parcial (texto)	pago total de la Front-end Fee antes de cualquier retiro	dato	pago total del Front-end Fee antes de cualquier retiro	dato
+tanda 2 (BIRF)	BIRF-7961	D02	número de condiciones previas especiales	coincide	1	calculado	1	calculado
+tanda 2 (BIRF)	BIRF-7961	D02b	alcance de las condiciones previas	coincide	todo el préstamo	dato	todo el préstamo	dato
+tanda 2 (BIRF)	BIRF-7961	D02c	otras condiciones de desembolso (fuera de la cláusula)	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-7961	D03	condiciones de entrada en vigencia	parcial (texto)	Operational Manual adoptado por el prestatario (vía UCPS), satisfactorio para el banco; Result Agreements firmados por el prestatario y las contrapartes; asunto legal adicional: Result Agreements con Juntos y SIS autorizados y vinculantes	dato	Manual Operativo adoptado por el prestatario (vía UCPS) a satisfacción del banco; Convenios de Resultados firmados a satisfacción del banco; asunto legal adicional: Convenios de Resultados con Juntos y SIS autorizados y vinculantes	dato
+tanda 2 (BIRF)	BIRF-7961	D04	plazo para cumplir condiciones o entrar en vigencia	parcial (texto)	90 días después de la fecha del contrato, a más tardar 2012-09-08	dato	90 días después de la fecha del contrato; nunca después de 2012-09-08	dato
+tanda 2 (BIRF)	BIRF-7961	D05	financiamiento retroactivo o reconocimiento de gastos	coincide	sí	dato	sí	dato
+tanda 2 (BIRF)	BIRF-7961	D06	anticipo de fondos o cuenta designada	coincide	remite a la Disbursement Letter	remite	remite a la Disbursement Letter	remite
+tanda 2 (BIRF)	BIRF-7961	D07	número de componentes o categorías	coincide	3	calculado	3	calculado
+tanda 2 (BIRF)	BIRF-7961	D08	plazo para iniciar obras	coincide	no aplica	no aplica	no aplica	no aplica
+tanda 2 (BIRF)	BIRF-7961	E01	política de adquisiciones de bienes y obras	coincide	Guidelines: Procurement under IBRD Loans and IDA Credits (mayo 2004; revisadas en octubre 2006 y mayo 2010)	dato	Guidelines: Procurement under IBRD Loans and IDA Credits, mayo 2004, revisadas en octubre 2006 y mayo 2010	dato
+tanda 2 (BIRF)	BIRF-7961	E02	política de consultores	coincide	Guidelines: Selection and Employment of Consultants by World Bank Borrowers (mayo 2004; revisadas en octubre 2006 y mayo 2010)	dato	Guidelines: Selection and Employment of Consultants by World Bank Borrowers, mayo 2004, revisadas en octubre 2006 y mayo 2010	dato
+tanda 2 (BIRF)	BIRF-7961	E03a	uso del sistema o subsistema de país	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-7961	E03b	licitación pública nacional (LPN)	coincide	parcial	dato	parcial	dato
+tanda 2 (BIRF)	BIRF-7961	E03c	umbral de licitación internacional	parcial (texto)	Procurement Plan	remite	Plan de Adquisiciones (Procurement Plan)	remite
+tanda 2 (BIRF)	BIRF-7961	E04	plan de adquisiciones aprobado por el banco	coincide	sí	dato	sí	dato
+tanda 2 (BIRF)	BIRF-7961	E05a	dónde se define la revisión previa (no objeción)	coincide	Procurement Plan	dato	Procurement Plan	dato
+tanda 2 (BIRF)	BIRF-7961	E05b	umbrales de revisión previa	parcial (texto)	según el Procurement Plan	remite	según el Plan de Adquisiciones	remite
+tanda 2 (BIRF)	BIRF-7961	E05c	actualización del plan de adquisiciones	difiere (estado)	de tiempo en tiempo, según el párr. 1.16 de las Procurement Guidelines	remite	de tiempo en tiempo (from time to time), según el párr. 1.16 de las Procurement Guidelines; con aprobación del banco	dato
+tanda 2 (BIRF)	BIRF-7961	E05d	sistema de seguimiento del plan	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-7961	E06	aporte local (monto)	coincide	no aplica	no aplica	no aplica	no aplica
+tanda 2 (BIRF)	BIRF-7961	E07	aporte local (% del costo total)	coincide	no aplica	no aplica	no aplica	no aplica
+tanda 2 (BIRF)	BIRF-7961	E08	cofinanciamiento paralelo	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-7961	E09	manual operativo	coincide	sí	dato	sí	dato
+tanda 2 (BIRF)	BIRF-7961	E10	instrumento ambiental y social	parcial (texto)	Indigenous Peoples Strategic Framework (2009-12-28)	dato	Indigenous Peoples Strategic Framework (marco estratégico de pueblos indígenas, 2009-12-28)	dato
+tanda 2 (BIRF)	BIRF-7961	E11	unidad ejecutora y personal exigido	coincide	sí	dato	sí	dato
+tanda 2 (BIRF)	BIRF-7961	E12	condiciones especiales de adquisición	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-7961	E13	elegibilidad por origen	coincide	remite a la política del banco	remite	remite a la política del banco	remite
+tanda 2 (BIRF)	BIRF-7961	F01	informes de progreso	parcial (texto)	anual (año calendario; entrega a 4 meses del cierre)	dato	anual (año calendario; 4 meses después)	dato
+tanda 2 (BIRF)	BIRF-7961	F02a	auditoría: frecuencia y plazo	parcial (texto)	anual (año fiscal), entrega a 6 meses del cierre	dato	anual (un ejercicio fiscal), 6 meses tras el cierre del período	dato
+tanda 2 (BIRF)	BIRF-7961	F02b	auditoría: quién audita	parcial (texto)	auditores independientes contratados por la UCPS, con términos de referencia y calificaciones satisfactorios al banco	dato	auditores independientes con términos de referencia, calificación y experiencia satisfactorios al banco	dato
+tanda 2 (BIRF)	BIRF-7961	F03	evaluación de resultados	parcial (texto)	revisión de medio término al 2013-06-30; informe de ejecución del proyecto (GC 5.08(c)) al 2016-09-30	dato	revisión de medio término (al 2013-06-30); informe final de ejecución (GC 5.08(c)) a más tardar 2016-09-30	dato
+tanda 2 (BIRF)	BIRF-7961	F04	causales especiales de suspensión o vencimiento anticipado	parcial (texto)	suspensión: que surja una situación que haga improbable la ejecución del Programa (PAN) o de una parte significativa	dato	suspensión adicional: surge una situación que hace improbable que el Programa (PAN), o una parte significativa, se ejecute	dato
+tanda 2 (BIRF)	BIRF-7961	F05	otras obligaciones especiales	parcial (texto)	Reuniones Regulares multisectoriales al menos una vez al año, con actas al banco; Procurement Plan Report anual; Convenio con el INEI a más tardar 2011-12-31 y mantenerlo; ejecutar los Result Agreements con Juntos y SIS; revisión externa anual de adquisiciones por revisores independientes; devolver fondos mal usados	dato	reuniones regulares multisectoriales al menos una vez al año, con actas al banco; informe anual del Plan de Adquisiciones (Partes 1 y 3); convenio con INEI a más tardar 2011-12-31 y mantenerlo; ejecutar los Convenios de Resultados con Juntos y SIS; revisiones externas anuales de adquisiciones por revisores independientes; reembolsar al banco fondos mal adquiridos o sin respaldo	dato
+tanda 2 (BIRF)	BIRF-7961	G01	garante	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-7961	G02	convenio de traspaso de recursos	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-7961	G03	cuenta o fideicomiso como garantía	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-7961	H01	solución de controversias	coincide	remite a las General Conditions	remite	remite a las General Conditions	remite
+tanda 2 (BIRF)	BIRF-7961	I01	número de modificaciones	coincide	2	calculado	2	calculado
+tanda 2 (BIRF)	BIRF-7961	I02	qué cambian las modificaciones	parcial (texto)	2013-07-10: redefine las Partes 1 y 3 (quita las Eligible Budget Lines), cambia Regular Reports por Disbursement Reports, ajusta reportes, adquisiciones y retiros, mueve la revisión de medio término al 2014-06-30, agrega una auditoría técnica anual (Sec. V.D) y modifica la sec. 2.05(a) de las General Conditions; 2015-01-05: mueve la revisión de medio término al 2015-04-30 y reemplaza la auditoría técnica por una verificación independiente anual (Independent Verification Agent)	dato	2013-07-10: redefine las Partes 1 y 3 (quita las Eligible Budget Lines), cambia los Regular Reports por Disbursement Reports, informe de adquisiciones por año calendario, reescribe el reembolso, compras limitadas a lo incluido en el Plan, medio término al 2014-06-30, añade auditoría técnica anual (Sec. V.D) y modifica la GC 2.05(a); 2015-01-05: medio término al 2015-04-30 y reemplaza la Sec. V.D por verificación independiente anual (con su agente)	dato
+tanda 2 (BIRF)	BIRF-7961	I03	extensión del plazo para desembolsar	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-8468	A01	código de operación	coincide	P117293	metadato	P117293	metadato
+tanda 2 (BIRF)	BIRF-8468	A02	número de préstamo	coincide	8468-PE	dato	8468-PE	dato
+tanda 2 (BIRF)	BIRF-8468	A03	prestatario	parcial (texto)	República del Perú	dato	República del Perú (Republic of Peru)	dato
+tanda 2 (BIRF)	BIRF-8468	A04	organismo ejecutor	parcial (texto)	SEDAPAL (Servicio de Agua Potable y Alcantarillado de Lima), como Project Implementing Entity; Equipo de Proyectos Especiales (ex PROMESAL)	dato	SEDAPAL (Servicio de Agua Potable y Alcantarillado de Lima), Project Implementing Entity; unidad: Equipo de Proyectos Especiales (antes PROMESAL)	dato
+tanda 2 (BIRF)	BIRF-8468	A05	sector u objeto	parcial (texto)	Financiamiento adicional del Proyecto de Optimización de los Sistemas de Agua y Alcantarillado de Lima: eficiencia, continuidad y confiabilidad del agua y saneamiento en el Área de Servicio Norte de Lima	dato	Agua y saneamiento: mejorar la eficiencia, continuidad y confiabilidad del servicio en el Área Norte de Lima (financiamiento adicional del préstamo 8025-PE)	dato
+tanda 2 (BIRF)	BIRF-8468	A06	fecha de aprobación del banco	coincide	2015-01-15	calculado	2015-01-15	calculado
+tanda 2 (BIRF)	BIRF-8468	A07	fecha de firma	coincide		NA		NA
+tanda 2 (BIRF)	BIRF-8468	A08	monto del préstamo	coincide	55000000	dato	55000000	dato
+tanda 2 (BIRF)	BIRF-8468	A09	moneda	coincide	USD	dato	USD	dato
+tanda 2 (BIRF)	BIRF-8468	A10	condiciones generales aplicables	coincide	International Bank for Reconstruction and Development General Conditions for Loans, dated March 12, 2012, con las modificaciones de la Sec. II del Apéndice	dato	International Bank for Reconstruction and Development General Conditions for Loans, dated March 12, 2012, con las modificaciones de la Sec. II del Apéndice	dato
+tanda 2 (BIRF)	BIRF-8468	B01	plazo para desembolsar	coincide	2019-12-31	dato	2019-12-31	dato
+tanda 2 (BIRF)	BIRF-8468	B02	fecha de la primera cuota de capital	coincide	2020-04-15	dato	2020-04-15	dato
+tanda 2 (BIRF)	BIRF-8468	B03	fecha de la última cuota de capital	coincide	2038-10-15	dato	2038-10-15	dato
+tanda 2 (BIRF)	BIRF-8468	B04	número de cuotas	coincide	38	calculado	38	calculado
+tanda 2 (BIRF)	BIRF-8468	B05	frecuencia de las cuotas	coincide	semestral	dato	semestral	dato
+tanda 2 (BIRF)	BIRF-8468	B06	vida promedio ponderada (VPP)	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-8468	B07	perfil de amortización	coincide	cuotas iguales	dato	cuotas iguales	dato
+tanda 2 (BIRF)	BIRF-8468	B08	opciones de conversión o cobertura	coincide	sí	dato	sí	dato
+tanda 2 (BIRF)	BIRF-8468	C01	tasa base	coincide	Reference Rate	dato	Reference Rate	dato
+tanda 2 (BIRF)	BIRF-8468	C02	tipo de margen	coincide	Fixed Spread	dato	Fixed Spread	dato
+tanda 2 (BIRF)	BIRF-8468	C03	valor del margen	coincide	lo fija el banco según su política	remite	lo fija el banco según su política	remite
+tanda 2 (BIRF)	BIRF-8468	C03b	margen vigente al firmar (fuente externa)	coincide		NA		NA
+tanda 2 (BIRF)	BIRF-8468	C04	frecuencia de pago de intereses	coincide	semestral (15 de abril y 15 de octubre)	dato	semestral (15 de abril y 15 de octubre)	dato
+tanda 2 (BIRF)	BIRF-8468	C05	comisión de compromiso o de crédito	coincide	0.25	dato	0.25	dato
+tanda 2 (BIRF)	BIRF-8468	C06	comisión inicial (front-end fee)	coincide	0.25	dato	0.25	dato
+tanda 2 (BIRF)	BIRF-8468	C07	gastos de inspección y vigilancia	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-8468	D01	condiciones previas al primer desembolso	parcial (texto)	pago íntegro del Front-end Fee	dato	pago total del Front-end Fee antes de cualquier retiro	dato
+tanda 2 (BIRF)	BIRF-8468	D02	número de condiciones previas especiales	coincide	1	calculado	1	calculado
+tanda 2 (BIRF)	BIRF-8468	D02b	alcance de las condiciones previas	coincide	todo el préstamo	dato	todo el préstamo	dato
+tanda 2 (BIRF)	BIRF-8468	D02c	otras condiciones de desembolso (fuera de la cláusula)	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-8468	D03	condiciones de entrada en vigencia	parcial (texto)	Subsidiary Agreement suscrito por el prestatario y SEDAPAL; Manual Operativo actualizado adoptado por SEDAPAL; (asunto legal adicional) Subsidiary Agreement autorizado o ratificado y vinculante para ambas partes	dato	Subsidiary Agreement (convenio de traspaso) firmado por el prestatario y SEDAPAL; Manual Operativo actualizado adoptado por SEDAPAL; asunto legal adicional: Subsidiary Agreement autorizado o ratificado y vinculante	dato
+tanda 2 (BIRF)	BIRF-8468	D04	plazo para cumplir condiciones o entrar en vigencia	parcial (texto)	90 días desde la fecha del contrato; a más tardar 2016-07-15	dato	90 días después de la fecha del contrato; nunca después de 2016-07-15	dato
+tanda 2 (BIRF)	BIRF-8468	D05	financiamiento retroactivo o reconocimiento de gastos	coincide	sí	dato	sí	dato
+tanda 2 (BIRF)	BIRF-8468	D06	anticipo de fondos o cuenta designada	coincide	remite a la Disbursement Letter	remite	remite a la Disbursement Letter	remite
+tanda 2 (BIRF)	BIRF-8468	D07	número de componentes o categorías	coincide	3	calculado	3	calculado
+tanda 2 (BIRF)	BIRF-8468	D08	plazo para iniciar obras	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-8468	E01	política de adquisiciones de bienes y obras	parcial (texto)	Procurement Guidelines («Guidelines: Procurement of Goods, Works and Non-consulting Services under IBRD Loans and IDA Credits and Grants by World Bank Borrowers»), enero 2011, revisadas en julio 2014	dato	Guidelines: Procurement of Goods, Works and Non-consulting Services under IBRD Loans and IDA Credits and Grants by World Bank Borrowers, enero 2011 (revisadas julio 2014)	dato
+tanda 2 (BIRF)	BIRF-8468	E02	política de consultores	parcial (texto)	Consultant Guidelines («Guidelines: Selection and Employment of Consultants under IBRD Loans and IDA Credits and Grants by World Bank Borrowers»), enero 2011, revisadas en julio 2014	dato	Guidelines: Selection and Employment of Consultants under IBRD Loans and IDA Credits and Grants by World Bank Borrowers, enero 2011 (revisadas julio 2014)	dato
+tanda 2 (BIRF)	BIRF-8468	E03a	uso del sistema o subsistema de país	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-8468	E03b	licitación pública nacional (LPN)	coincide	parcial	dato	parcial	dato
+tanda 2 (BIRF)	BIRF-8468	E03c	umbral de licitación internacional	coincide	Plan de Adquisiciones (Procurement Plan)	remite	Plan de Adquisiciones (Procurement Plan)	remite
+tanda 2 (BIRF)	BIRF-8468	E04	plan de adquisiciones aprobado por el banco	coincide	sí	dato	sí	dato
+tanda 2 (BIRF)	BIRF-8468	E05a	dónde se define la revisión previa (no objeción)	coincide	Procurement Plan	dato	Procurement Plan	dato
+tanda 2 (BIRF)	BIRF-8468	E05b	umbrales de revisión previa	difiere (valor)	Procurement Plan	remite	según el Plan de Adquisiciones	remite
+tanda 2 (BIRF)	BIRF-8468	E05c	actualización del plan de adquisiciones	parcial (texto)	de tiempo en tiempo (from time to time), según los párrafos 1.16 y 1.24 de las guías	dato	de tiempo en tiempo (from time to time), según el párr. 1.16 de las Procurement Guidelines	dato
+tanda 2 (BIRF)	BIRF-8468	E05d	sistema de seguimiento del plan	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-8468	E06	aporte local (monto)	difiere (valor)		no aplica	no aplica	no aplica
+tanda 2 (BIRF)	BIRF-8468	E07	aporte local (% del costo total)	difiere (valor)		no aplica	no aplica	no aplica
+tanda 2 (BIRF)	BIRF-8468	E08	cofinanciamiento paralelo	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-8468	E09	manual operativo	coincide	sí	dato	sí	dato
+tanda 2 (BIRF)	BIRF-8468	E10	instrumento ambiental y social	coincide	EMP (Environmental Management Plan) e Involuntary Resettlement Framework	dato	EMP (Environmental Management Plan) e Involuntary Resettlement Framework	dato
+tanda 2 (BIRF)	BIRF-8468	E11	unidad ejecutora y personal exigido	difiere (valor)	Project Agreement, Sec. I.A.1 (Equipo de Proyectos Especiales, ex PROMESAL)	remite	remite al Project Agreement (Sec. I.A.1)	remite
+tanda 2 (BIRF)	BIRF-8468	E12	condiciones especiales de adquisición	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-8468	E13	elegibilidad por origen	coincide	remite a la política del banco	remite	remite a la política del banco	remite
+tanda 2 (BIRF)	BIRF-8468	F01	informes de progreso	difiere (valor)	semestral; 45 días tras el fin de cada semestre	dato	semestral (con los informes financieros no auditados, 45 días tras cada semestre calendario)	dato
+tanda 2 (BIRF)	BIRF-8468	F02a	auditoría: frecuencia y plazo	parcial (texto)	anual (ejercicio fiscal de SEDAPAL); 6 meses tras el cierre	dato	anual (un ejercicio fiscal de SEDAPAL), 6 meses tras el cierre del período	dato
+tanda 2 (BIRF)	BIRF-8468	F02b	auditoría: quién audita	parcial (texto)	remite a las General Conditions (Sec. 5.09)	remite	remite a las General Conditions (Sec. 5.09(b))	remite
+tanda 2 (BIRF)	BIRF-8468	F03	evaluación de resultados	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-8468	F04	causales especiales de suspensión o vencimiento anticipado	parcial (texto)	suspensión: que la legislación de SEDAPAL se modifique, suspenda o derogue de modo que afecte su capacidad de cumplir el Project Agreement; vencimiento anticipado: el mismo evento	dato	suspensión y vencimiento anticipado adicionales: cambio, suspensión o derogación de la legislación de SEDAPAL que afecte su capacidad de cumplir el Project Agreement	dato
+tanda 2 (BIRF)	BIRF-8468	F05	otras obligaciones especiales	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-8468	G01	garante	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-8468	G02	convenio de traspaso de recursos	coincide	sí	dato	sí	dato
+tanda 2 (BIRF)	BIRF-8468	G03	cuenta o fideicomiso como garantía	coincide	no	0	no	0
+tanda 2 (BIRF)	BIRF-8468	H01	solución de controversias	coincide	remite a las General Conditions	remite	remite a las General Conditions	remite
+tanda 2 (BIRF)	BIRF-8468	I01	número de modificaciones	coincide	0	0	0	0
+tanda 2 (BIRF)	BIRF-8468	I02	qué cambian las modificaciones	difiere (valor)		no aplica	no aplica	no aplica
+tanda 2 (BIRF)	BIRF-8468	I03	extensión del plazo para desembolsar	coincide	no	0	no	0

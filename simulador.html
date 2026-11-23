@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simulador de préstamos · Préstamos multilaterales al Perú</title>
+<meta name="description" content="Simula el desembolso, la gracia y el pago de un préstamo del BID o del Banco Mundial, con 7 contratos reales o con tus supuestos.">
+<link rel="stylesheet" href="assets/estilos.css">
+<style>
+/* ---------- Tokens de color (claro y oscuro) ---------- */
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --axis: #c3c2b7;
+  --ring: rgba(11,11,11,0.10);
+  --s1: #2a78d6;   /* desembolso */
+  --s2: #eb6834;   /* capital */
+  --s3: #1baf7a;   /* intereses */
+  --s4: #eda100;   /* comisiones */
+  --s7: #6250d6;   /* saldo deudor */
+  --neutral: #c3c2b7; /* gracia */
+  --warn-bg: #fff4d6;
+  --warn-ink: #6b4a00;
+  --focus: #2a78d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s7: #9085e9; --neutral: #5a5955;
+    --warn-bg: #3a2e0f; --warn-ink: #fad27a; --focus: #3987e5;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --ring: rgba(255,255,255,0.10);
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s7: #9085e9; --neutral: #5a5955;
+  --warn-bg: #3a2e0f; --warn-ink: #fad27a; --focus: #3987e5;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1120px; margin: 0 auto; padding: 24px 16px 64px; }
+h1 { font-size: 26px; line-height: 1.25; margin: 0 0 6px; font-weight: 650; }
+h2 { font-size: 18px; margin: 0 0 4px; font-weight: 620; }
+p { margin: 0 0 10px; }
+.lead { color: var(--ink-2); max-width: 760px; }
+.card { background: var(--surface); border: 1px solid var(--ring); border-radius: 12px;
+  padding: 18px; margin-top: 18px; }
+.sub { color: var(--ink-2); font-size: 13.5px; margin-bottom: 10px; }
+.small { font-size: 12.5px; color: var(--muted); }
+
+/* ---------- Controles ---------- */
+.controls { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px 16px; }
+.controls label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink-2); }
+.controls input, .controls select { font: inherit; font-size: 14px; color: var(--ink); background: var(--page);
+  border: 1px solid var(--axis); border-radius: 8px; padding: 6px 8px; min-height: 36px; }
+.controls input[type=range] { padding: 0; min-height: 28px; accent-color: var(--s1); }
+.controls .wide { grid-column: span 2; }
+@media (max-width: 520px) { .controls .wide { grid-column: span 1; } }
+.ctrl-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; justify-content: space-between; margin-bottom: 14px; }
+.ctrl-head label { min-width: 0; flex: 1 1 260px; max-width: 100%; }
+.ctrl-head select { width: 100%; max-width: 100%; }
+button { font: inherit; font-size: 13.5px; color: var(--ink); background: var(--page); border: 1px solid var(--axis);
+  border-radius: 8px; padding: 7px 12px; cursor: pointer; min-height: 36px; }
+button:hover { border-color: var(--ink-2); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.val { color: var(--ink); font-variant-numeric: tabular-nums; }
+.hint { font-size: 11.5px; color: var(--muted); }
+
+/* ---------- Tarjetas de cifras ---------- */
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(138px, 1fr)); gap: 10px; }
+.tile { border: 1px solid var(--ring); border-radius: 10px; padding: 12px; background: var(--surface); }
+.tile .lab { font-size: 12.5px; color: var(--ink-2); }
+.tile .num { font-size: 24px; font-weight: 620; line-height: 1.2; margin-top: 2px; }
+.tile .det { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.reading { margin-top: 14px; padding: 12px 14px; border-left: 3px solid var(--s1); background: var(--page);
+  border-radius: 0 8px 8px 0; }
+.warn { display: none; margin-top: 10px; padding: 10px 12px; border-radius: 8px; background: var(--warn-bg); color: var(--warn-ink); font-size: 13.5px; }
+.warn.on { display: block; }
+
+/* ---------- Gráficos ---------- */
+.chart { position: relative; width: 100%; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+@media (max-width: 520px) { .chart svg { overflow: hidden; } }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--ink-2); margin: 4px 0 8px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+.sw.line { height: 2px; border-radius: 1px; width: 16px; }
+.tip { position: fixed; pointer-events: none; background: var(--surface); color: var(--ink); border: 1px solid var(--ring);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12); border-radius: 8px; padding: 8px 10px; font-size: 12.5px; min-width: 170px;
+  opacity: 0; transition: opacity .08s; z-index: 5; }
+.tip.on { opacity: 1; }
+.tip .t { color: var(--ink-2); margin-bottom: 4px; }
+.tip .r { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+.tip .r b { font-variant-numeric: tabular-nums; font-weight: 620; }
+.tip .k { display: inline-flex; align-items: center; gap: 6px; color: var(--ink-2); }
+.tip .k i { width: 12px; height: 2px; border-radius: 1px; display: inline-block; }
+.hit { fill: transparent; cursor: crosshair; }
+.hit:focus { outline: none; }
+.hit:focus-visible { stroke: var(--focus); stroke-width: 2; }
+
+/* ---------- Tabla ---------- */
+details summary { cursor: pointer; color: var(--ink-2); font-size: 14px; }
+.tablewrap { overflow-x: auto; margin-top: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; font-variant-numeric: tabular-nums; }
+th, td { padding: 5px 8px; text-align: right; border-bottom: 1px solid var(--grid); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--ink-2); font-weight: 600; position: sticky; top: 0; background: var(--surface); }
+.notes li { margin-bottom: 6px; color: var(--ink-2); font-size: 13.5px; }
+</style>
+</head>
+<body>
+<header class="barra"><div class="barra__in">
+  <a class="barra__sitio" href="index.html">Préstamos multilaterales al Perú</a>
+  <nav aria-label="Secciones">
+    <a href="index.html">Inicio</a>
+    <a href="simulador.html" aria-current="page">Simulador</a>
+    <a href="datos.html">Datos</a>
+    <a href="pipeline.html">Cómo se hizo</a>
+    <a href="metodo.html">Método y lecturas</a>
+  </nav>
+</div></header>
+<main>
+  <h1>Simulador de desembolso y pago de un préstamo</h1>
+  <p class="lead">Muestra cuándo recibe el Perú el dinero, cuándo empieza a devolverlo y cuánto paga en intereses y comisiones. Puedes partir de uno de 7 contratos reales del BID y del Banco Mundial o de un préstamo propio. Si cambias un supuesto, todo se recalcula.</p>
+
+  <!-- ---------- Controles ---------- -->
+  <section class="card" aria-labelledby="h-ctrl">
+    <div class="ctrl-head">
+      <label>Caso de partida
+        <select id="caso"></select>
+      </label>
+      <button id="reset" type="button">Volver a los datos del caso</button>
+    </div>
+    <h2 id="h-ctrl" style="font-size:15px;margin-bottom:10px">Supuestos</h2>
+    <div class="controls">
+      <label>Monto del préstamo (US$ millones)
+        <input id="monto" type="number" min="1" step="1">
+      </label>
+      <label>Fecha de firma
+        <input id="firma" type="date">
+      </label>
+      <label>Plazo para desembolsar (años desde la firma)
+        <input id="plazoDes" type="number" min="0.5" max="15" step="0.25">
+      </label>
+      <label>Ritmo de los desembolsos
+        <select id="ritmo">
+          <option value="s">Curva S: lento, rápido y lento al final</option>
+          <option value="u">Uniforme</option>
+          <option value="tarde">Se concentra al final (ejecución lenta)</option>
+          <option value="pronto">Se concentra al inicio</option>
+        </select>
+      </label>
+      <label class="wide">Demora en la ejecución: <span class="val" id="demoraV"></span>
+        <input id="demora" type="range" min="0" max="48" step="3">
+        <span class="hint">Retrasa el inicio y alarga el período de desembolso.</span>
+      </label>
+      <label>Primera cuota de capital (años desde la firma)
+        <input id="gracia" type="number" min="0.5" max="20" step="0.5">
+      </label>
+      <label>Forma de pago del capital
+        <select id="perfil">
+          <option value="contrato">Cronograma del contrato</option>
+          <option value="iguales">Cuotas semestrales iguales</option>
+        </select>
+      </label>
+      <label>Número de cuotas semestrales
+        <input id="ncuotas" type="number" min="1" max="80" step="1">
+      </label>
+      <label>Tasa base supuesta, SOFR o LIBOR (% anual)
+        <input id="tasa" type="number" min="0" max="15" step="0.05">
+      </label>
+      <label>Margen del banco (% anual)
+        <input id="margen" type="number" min="0" max="6" step="0.01">
+      </label>
+      <label>Comisión de compromiso (% anual sobre lo no desembolsado)
+        <input id="comp" type="number" min="0" max="2" step="0.05">
+      </label>
+      <label>Comisión inicial (% del monto, una sola vez)
+        <input id="inicial" type="number" min="0" max="2" step="0.05">
+      </label>
+    </div>
+    <p class="small" id="fuenteCaso" style="margin-top:12px"></p>
+  </section>
+
+  <!-- ---------- Cifras ---------- -->
+  <section class="card" aria-labelledby="h-tiles">
+    <h2 id="h-tiles">Resultado</h2>
+    <div class="tiles" id="tiles"></div>
+    <div class="reading" id="lectura"></div>
+    <div class="warn" id="aviso" role="status"></div>
+  </section>
+
+  <!-- ---------- Línea de tiempo del préstamo ---------- -->
+  <section class="card" aria-labelledby="h-gantt">
+    <h2 id="h-gantt">Las etapas del préstamo en el tiempo</h2>
+    <p class="sub">Cada barra es una etapa. Si la barra de desembolso y la de pago de capital se cruzan, el país paga capital mientras todavía recibe dinero.</p>
+    <div class="chart" id="gantt"></div>
+  </section>
+
+  <!-- ---------- Flujos por semestre ---------- -->
+  <section class="card" aria-labelledby="h-flujos">
+    <h2 id="h-flujos">Lo que entra y lo que sale, por semestre (US$ millones)</h2>
+    <p class="sub">Hacia arriba, el dinero que el banco desembolsa. Hacia abajo, lo que el país paga: capital, intereses y comisiones. Pasa el cursor sobre un semestre para ver las cifras.</p>
+    <div class="legend" id="leg1"></div>
+    <div class="chart" id="flujos"></div>
+  </section>
+
+  <!-- ---------- Saldo ---------- -->
+  <section class="card" aria-labelledby="h-saldo">
+    <h2 id="h-saldo">Saldo deudor al cierre de cada semestre (US$ millones)</h2>
+    <p class="sub">Cuánto debe el país en cada momento: sube mientras se desembolsa y baja con cada cuota de capital.</p>
+    <div class="chart" id="saldo"></div>
+    <div class="tip" id="tip" role="tooltip"></div>
+  </section>
+
+  <!-- ---------- Comparación de los 5 contratos ---------- -->
+  <section class="card" aria-labelledby="h-comp">
+    <h2 id="h-comp">El horizonte de 7 contratos reales</h2>
+    <p class="sub">Datos de cada contrato, no simulados. La barra azul va de la firma al fin del plazo para desembolsar; la línea gris es la gracia de capital; la barra naranja va de la primera a la última cuota.</p>
+    <div class="legend">
+      <span><i class="sw" style="background:var(--s1)"></i>Plazo para desembolsar</span>
+      <span><i class="sw line" style="background:var(--neutral);height:3px"></i>Gracia de capital</span>
+      <span><i class="sw" style="background:var(--s2)"></i>Pago de capital</span>
+    </div>
+    <div class="chart" id="comparar"></div>
+  </section>
+
+  <!-- ---------- Tabla ---------- -->
+  <section class="card">
+    <details>
+      <summary>Ver la tabla semestre por semestre</summary>
+      <div class="tablewrap"><table id="tabla"></table></div>
+    </details>
+  </section>
+
+  <!-- ---------- Supuestos y fuentes ---------- -->
+  <section class="card" aria-labelledby="h-notas">
+    <h2 id="h-notas">Cómo calcula el simulador</h2>
+    <ul class="notes">
+      <li><b>Desembolso.</b> El primer desembolso llega 6 meses después de la firma, que es el tiempo típico para cumplir las condiciones previas (las Normas Generales del BID dan 180 días). Desde ahí, el dinero sale mes a mes según el ritmo elegido hasta el fin del plazo. La demora retrasa el inicio y alarga el final. Si el final pasa el plazo, haría falta ampliar el contrato.</li>
+      <li><b>Capital.</b> Se paga en las fechas del cronograma. Lo desembolsado después de la primera cuota se reparte entre las cuotas que quedan, como dice el contrato BIRF 8226-PE (Schedule 3, párr. 2).</li>
+      <li><b>Intereses.</b> Se calculan cada mes sobre el saldo deudor, con la tasa base más el margen, y se agrupan por semestre. La tasa base real es variable; aquí se usa una sola cifra como supuesto.</li>
+      <li><b>Comisiones.</b> La de compromiso se cobra sobre lo que falta desembolsar, desde el día 60 después de la firma. La inicial se paga una vez, con el primer desembolso.</li>
+      <li><b>Márgenes por defecto.</b> En los casos BID se usa la tarifa BID de 2026 (margen de préstamo de 0,80 % + margen de fondeo de 0,42 %) y una comisión de compromiso de 0,50 %, como referencia, aunque los contratos más antiguos firmaron con otras tarifas. En los casos BIRF, el margen de 1,0 % es un supuesto, porque la cifra depende de las tablas del Banco Mundial a la fecha de la firma (variable C03b de la ficha).</li>
+      <li><b>Qué no incluye.</b> No incluye conversiones de moneda o tasa, prepagos, cancelaciones de saldo no usado, gastos de supervisión ni el aporte local.</li>
+    </ul>
+    <p class="small">Fuentes de los casos: los contratos publicados por el BID (4726/OC-PE, 4873/OC-PE y 2703/OC-PE) y el Banco Mundial (9274-PE, 8226-PE, 7961-PE y 8517-PE). Cada dato, con su cita y su página, está en la sección <a href="datos.html">Datos</a>; los enlaces a cada documento oficial están en <a href="data/fuentes_documentos.tsv">fuentes_documentos.tsv</a>.</p>
+  </section>
+</main>
+
+<script>
+// ===================== PROCESO 1: Datos de los casos =====================
+// Fechas y cronogramas tomados de los contratos del piloto (ficha v1/v2).
+const CASOS = {
+  "PE-L1228": { nombre: "BID PE-L1228 · Redes Integradas de Salud (MINSA), 2019", banco: "BID",
+    monto: 125, firma: "2019-03-13", plazoDes: 5, primera: "2025-05-15",
+    cuotas: [12,12,4,4,16,16,4,4,8,8,12], vppContrato: 8.6, margen: 1.22, comp: 0.50, inicial: 0,
+    fuente: "Contrato 4726/OC-PE: 5 años para desembolsar (Cl. 2.04); 11 cuotas semestrales entre el 15-05-2025 y el 15-05-2030, con VPP de 8,6 años (Cl. 2.05)." },
+  "PE-L1224": { nombre: "BID PE-L1224 · Prevención del delito (MININTER), 2019", banco: "BID",
+    monto: 40, firma: "2019-12-27", plazoDes: 5, primera: "2025-11-15",
+    cuotas: [12.5,6.25,6.25,15,15,15,15,15], vppContrato: 7.89, margen: 1.22, comp: 0.50, inicial: 0,
+    fuente: "Contrato 4873/OC-PE: 5 años para desembolsar (Cl. 2.04); 8 cuotas entre el 15-11-2025 y el 15-05-2029, con VPP de 7,89 años (Cl. 2.05)." },
+  "PE-L1101": { nombre: "BID PE-L1101 · Inversión pública territorial (MEF), 2012", banco: "BID",
+    monto: 20, firma: "2012-10-19", plazoDes: 4.5, primera: "2017-10-19",
+    cuotas: Array(40).fill(2.5), vppContrato: 14.75, margen: 1.22, comp: 0.50, inicial: 0,
+    fuente: "Contrato 2703/OC-PE: 4,5 años para desembolsar (Cl. 3.04); cuotas semestrales iguales desde los 5 años y hasta, a más tardar, los 25 años (Cl. 2.01); VPP de 14,75 años (Cl. 4.03)." },
+  "9274-PE": { nombre: "BIRF 9274-PE · Vigilancia en salud pública (INS), 2021", banco: "BIRF",
+    monto: 68, firma: "2021-12-23", plazoDes: 4.52, primera: "2025-12-15",
+    cuotas: Array(14).fill(6.67).concat([6.62]), vppContrato: null, margen: 1.0, comp: 0.25, inicial: 0.25,
+    fuente: "Loan Agreement 9274-PE: fecha de cierre 30-06-2026 (Schedule 2); 15 cuotas desde el 15-12-2025 hasta el 15-12-2032 (Schedule 3); comisiones de 0,25 % (Art. II). Fecha de firma tomada de la tabla base." },
+  "8226-PE": { nombre: "BIRF 8226-PE · Educación básica (MINEDU), 2013", banco: "BIRF",
+    monto: 25, firma: "2013-07-01", plazoDes: 4.75, primera: "2017-09-15",
+    cuotas: [20,20,20,20,20], vppContrato: null, margen: 1.0, comp: 0, inicial: 0.25,
+    fuente: "Loan Agreement 8226-PE: fecha de cierre 31-03-2018 (Schedule 2); 5 cuotas de 20 % desde el 15-09-2017 (Schedule 3); comisión inicial de 0,25 % (Art. II). No trae comisión de compromiso." },
+  "7961-PE": { nombre: "BIRF 7961-PE · Nutrición en Juntos (MIDIS), 2011 — pago único", banco: "BIRF",
+    monto: 25, firma: "2011-07-05", plazoDes: 4.74, primera: "2029-02-15",
+    cuotas: [100], vppContrato: null, margen: 1.0, comp: 0, inicial: 0.25,
+    fuente: "Loan Agreement 7961-PE: cierre 31-03-2016 (el proyecto cerró en realidad el 30-06-2017, según la API del Banco Mundial); todo el capital se paga en una sola cuota el 15-02-2029 (Schedule 3); comisión inicial de 0,25 %; sin comisión de compromiso." },
+  "8517-PE": { nombre: "BIRF 8517-PE · Línea 2 del Metro de Lima (MTC), 2016", banco: "BIRF",
+    monto: 300, firma: "2016-04-12", plazoDes: 5.72, primera: "2021-05-15",
+    cuotas: Array(22).fill(100 / 22), vppContrato: null, margen: 1.0, comp: 0.25, inicial: 0.25,
+    fuente: "Loan Agreement 8517-PE: cierre 31-12-2021 (cerró antes, el 05-06-2020, según la API del Banco Mundial); 22 cuotas semestrales iguales del 15-05-2021 al 15-11-2031; comisiones de 0,25 %. Empieza a pagar capital antes de la fecha de cierre." },
+  "propio": { nombre: "Préstamo propio (supuestos libres)", banco: "—",
+    monto: 100, firma: "2027-01-15", plazoDes: 5, primera: null, graciaAnios: 5.5,
+    cuotas: null, ncuotas: 30, vppContrato: null, margen: 1.22, comp: 0.50, inicial: 0,
+    fuente: "Supuestos libres: cámbialos para ver el efecto." },
+};
+const TASA_BASE_DEFECTO = 3.5;
+
+// ===================== PROCESO 2: Utilidades de fechas y formato =====================
+const DIA = 864e5;
+function fecha(iso) { const [y, m, d] = iso.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)); }
+function sumaMeses(f, n) { const d = new Date(f); const dia = d.getUTCDate(); d.setUTCDate(1); d.setUTCMonth(d.getUTCMonth() + n);
+  const ult = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 0)).getUTCDate(); d.setUTCDate(Math.min(dia, ult)); return d; }
+function mesesEntre(a, b) { return (b.getUTCFullYear() - a.getUTCFullYear()) * 12 + (b.getUTCMonth() - a.getUTCMonth()); }
+function anios(a, b) { return (b - a) / (365.25 * DIA); }
+function num(n, d = 1) { if (!isFinite(n)) return "—"; if (Math.abs(n) < 0.5 * 10 ** -d) n = 0; const s = Math.abs(n).toFixed(d).split(".");
+  s[0] = s[0].replace(/\B(?=(\d{3})+(?!\d))/g, " "); return (n < 0 ? "−" : "") + s.join(","); }
+const MESES = ["ene","feb","mar","abr","may","jun","jul","ago","set","oct","nov","dic"];
+function fTxt(f) { return MESES[f.getUTCMonth()] + "-" + f.getUTCFullYear(); }
+function anioDec(f) { return f.getUTCFullYear() + (f.getUTCMonth() + f.getUTCDate() / 31) / 12; }
+
+// ===================== PROCESO 3: Simulación mensual =====================
+// Entrada: supuestos del formulario. Salida: flujos mensuales agregados por semestre + indicadores.
+function simular(s) {
+  const firma = s.firma, M = s.monto;
+  const r = (s.tasa + s.margen) / 100, c = s.comp / 100;
+  // Cronograma de capital: participaciones normalizadas y meses de pago
+  let part = (s.perfil === "contrato" && s.cuotasCaso) ? s.cuotasCaso.slice() : Array(s.ncuotas).fill(100 / s.ncuotas);
+  const tot = part.reduce((a, b) => a + b, 0); part = part.map(x => x / tot);
+  const primera = sumaMeses(firma, Math.round(s.gracia * 12));
+  const m0 = mesesEntre(firma, primera);
+  const mesPago = part.map((_, k) => m0 + 6 * k);
+  // Meses de desembolso (pesos según el ritmo)
+  const ini = 6 + Math.round(s.demora / 2);
+  const finPlan = Math.max(7, Math.round(s.plazoDes * 12));
+  // El último desembolso no puede caer después de la última cuota: se recorta y se avisa
+  const finMax = mesPago[mesPago.length - 1] - 1;
+  let fin = Math.max(ini + 1, finPlan + s.demora), recorte = false;
+  if (fin > finMax) { fin = Math.max(ini + 1, finMax); recorte = true; }
+  const n = fin - ini;
+  const peso = i => { const x = (i + 0.5) / n;
+    return s.ritmo === "u" ? 1 : s.ritmo === "s" ? Math.sin(Math.PI * x) ** 2 + 0.05 : s.ritmo === "tarde" ? x + 0.05 : 1.05 - x; };
+  const pesos = Array.from({ length: n }, (_, i) => peso(i)); const sp = pesos.reduce((a, b) => a + b, 0);
+  const T = Math.max(fin, mesPago[mesPago.length - 1]) + 1;
+  const des = new Array(T).fill(0), cap = new Array(T).fill(0), int = new Array(T).fill(0), com = new Array(T).fill(0);
+  for (let i = 0; i < n; i++) des[ini + i] = M * pesos[i] / sp;
+  // Capital: cada tramo se reparte entre las cuotas posteriores a su desembolso
+  for (let t = 0; t < T; t++) {
+    if (!des[t]) continue;
+    const rest = mesPago.map((m, k) => (m > t ? k : -1)).filter(k => k >= 0);
+    const ks = rest.length ? rest : [mesPago.length - 1];
+    const den = ks.reduce((a, k) => a + part[k], 0);
+    ks.forEach(k => { cap[mesPago[k]] += des[t] * part[k] / den; });
+  }
+  // Intereses y comisiones, mes a mes
+  let desAc = 0, capAc = 0; const saldo = new Array(T).fill(0), porDes = new Array(T).fill(0);
+  for (let t = 0; t < T; t++) {
+    const sinDes = M - desAc;
+    if (t >= 2 && sinDes > 1e-9) com[t] += sinDes * c / 12;   // desde ~60 días tras la firma
+    if (des[t] > 0 && desAc === 0) com[t] += M * s.inicial / 100;
+    desAc += des[t];
+    const base = desAc - capAc;
+    int[t] = Math.max(0, base) * r / 12;
+    capAc += cap[t];
+    saldo[t] = desAc - capAc; porDes[t] = M - desAc;
+  }
+  // Agregar por semestre calendario
+  const sem = [];
+  for (let t = 0; t < T; t++) {
+    const f = sumaMeses(firma, t); const y = f.getUTCFullYear(), h = f.getUTCMonth() < 6 ? 1 : 2;
+    const key = y + "-S" + h; let row = sem[sem.length - 1];
+    if (!row || row.key !== key) { row = { key, y, h, des: 0, cap: 0, int: 0, com: 0, saldo: 0, porDes: 0 }; sem.push(row); }
+    row.des += des[t]; row.cap += cap[t]; row.int += int[t]; row.com += com[t]; row.saldo = saldo[t]; row.porDes = porDes[t];
+  }
+  const primDes = sumaMeses(firma, ini), ultDes = sumaMeses(firma, fin - 1), ultima = sumaMeses(firma, mesPago[mesPago.length - 1]);
+  const plazoLim = sumaMeses(firma, finPlan);
+  const vpp = mesPago.reduce((a, m, k) => a + cap[m] * anios(firma, sumaMeses(firma, m)), 0) / M;
+  const sum = a => a.reduce((x, y) => x + y, 0);
+  return { sem, firma, primera, ultima, primDes, ultDes, plazoLim, vpp, part, mesPago,
+    totInt: sum(int), totCom: sum(com), totCap: sum(cap), monto: M,
+    solape: Math.max(0, anios(primera, ultDes)), excede: fin > finPlan, recorte };
+}
+
+// ===================== PROCESO 4: Lectura del formulario =====================
+const $ = id => document.getElementById(id);
+let casoActual = "PE-L1228";
+function cargarCaso(k) {
+  const c = CASOS[k]; casoActual = k;
+  $("monto").value = c.monto; $("firma").value = c.firma; $("plazoDes").value = c.plazoDes;
+  $("ritmo").value = "s"; $("demora").value = 0;
+  const g = c.primera ? anios(fecha(c.firma), fecha(c.primera)) : c.graciaAnios;
+  $("gracia").value = Math.round(g * 4) / 4;
+  $("perfil").value = c.cuotas ? "contrato" : "iguales";
+  $("perfil").querySelector('[value=contrato]').disabled = !c.cuotas;
+  $("ncuotas").value = c.cuotas ? c.cuotas.length : c.ncuotas;
+  $("tasa").value = TASA_BASE_DEFECTO; $("margen").value = c.margen; $("comp").value = c.comp; $("inicial").value = c.inicial;
+  $("fuenteCaso").textContent = "Fuente del caso: " + c.fuente;
+}
+function leer() {
+  const c = CASOS[casoActual];
+  const v = id => parseFloat($(id).value);
+  const perfil = $("perfil").value;
+  $("ncuotas").disabled = perfil === "contrato";
+  if (perfil === "contrato" && c.cuotas) $("ncuotas").value = c.cuotas.length;
+  // Si el caso trae fecha exacta de primera cuota y no se tocó la gracia, usar la fecha exacta
+  const gExacta = c.primera ? anios(fecha(c.firma), fecha(c.primera)) : null;
+  let g = v("gracia");
+  if (gExacta && Math.abs(g - Math.round(gExacta * 4) / 4) < 1e-9 && $("firma").value === c.firma) g = gExacta;
+  return { monto: Math.max(1, v("monto") || 1), firma: fecha($("firma").value || c.firma),
+    plazoDes: Math.max(0.5, v("plazoDes") || 1), ritmo: $("ritmo").value, demora: parseInt($("demora").value, 10) || 0,
+    gracia: Math.max(0.5, g || 1), perfil, cuotasCaso: c.cuotas, ncuotas: Math.max(1, Math.round(v("ncuotas") || 1)),
+    tasa: Math.max(0, v("tasa") || 0), margen: Math.max(0, v("margen") || 0), comp: Math.max(0, v("comp") || 0), inicial: Math.max(0, v("inicial") || 0) };
+}
+
+// ===================== PROCESO 5: Dibujo (SVG) =====================
+const NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, parent) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; }
+function txt(parent, x, y, s, attrs = {}) { const t = el("text", Object.assign({ x, y, fill: "var(--muted)", "font-size": 11.5 }, attrs), parent); t.textContent = s; return t; }
+function ticks(max, n = 4) { if (max <= 0) return [0]; const raw = max / n, p = 10 ** Math.floor(Math.log10(raw));
+  const step = [1, 2, 2.5, 5, 10].map(m => m * p).find(s => s >= raw); const out = []; for (let v = 0; v <= max + 1e-9; v += step) out.push(v); if (out[out.length - 1] < max) out.push(out[out.length - 1] + step); return out; }
+// Barra con esquinas redondeadas solo en el extremo de datos (arriba si sube, abajo si baja)
+function barra(g, x, y0, y1, w, color, redondo) {
+  const top = Math.min(y0, y1), h = Math.abs(y1 - y0); if (h < 0.3) return null;
+  const rr = redondo ? Math.min(4, h, w / 2) : 0, haciaArriba = y1 < y0;
+  let d;
+  if (!rr) d = `M${x},${top}h${w}v${h}h${-w}z`;
+  else if (haciaArriba) d = `M${x},${top + h}V${top + rr}Q${x},${top} ${x + rr},${top}H${x + w - rr}Q${x + w},${top} ${x + w},${top + rr}V${top + h}z`;
+  else d = `M${x},${top}H${x + w}V${top + h - rr}Q${x + w},${top + h} ${x + w - rr},${top + h}H${x + rr}Q${x},${top + h} ${x},${top + h - rr}z`;
+  return el("path", { d, fill: color }, g);
+}
+const SERIES = [
+  { k: "des", n: "Desembolso", c: "var(--s1)" },
+  { k: "cap", n: "Capital", c: "var(--s2)" },
+  { k: "int", n: "Intereses", c: "var(--s3)" },
+  { k: "com", n: "Comisiones", c: "var(--s4)" },
+];
+let estado = null, marcado = -1;
+
+function dibujarFlujos(R) {
+  const box = $("flujos"); box.innerHTML = "";
+  const W = Math.max(320, box.clientWidth), H = 300, L = 48, Rm = 10, T = 12, B = 30;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Columnas por semestre: desembolsos hacia arriba y pagos hacia abajo" }, box);
+  const sem = R.sem, n = sem.length;
+  const maxUp = Math.max(...sem.map(s => s.des), 0.01), maxDn = Math.max(...sem.map(s => s.cap + s.int + s.com), 0.01);
+  const tu = ticks(maxUp, 3), td = ticks(maxDn, 3);
+  const up = tu[tu.length - 1], dn = td[td.length - 1];
+  const plotH = H - T - B, y0 = T + plotH * up / (up + dn);
+  const y = v => y0 - v * (plotH / (up + dn));
+  const band = (W - L - Rm) / n, bw = Math.min(24, Math.max(2, band - 2)), x = i => L + i * band + (band - bw) / 2;
+  const g = el("g", {}, svg);
+  // Grilla y eje
+  tu.concat(td.slice(1).map(v => -v)).forEach(v => {
+    el("line", { x1: L, x2: W - Rm, y1: y(v), y2: y(v), stroke: v === 0 ? "var(--axis)" : "var(--grid)", "stroke-width": 1 }, g);
+    txt(g, L - 6, y(v) + 4, num(Math.abs(v), v && Math.abs(v) < 10 ? 1 : 0), { "text-anchor": "end" });
+  });
+  txt(g, L - 6, T - 2, "", {});
+  // Años en el eje x
+  const paso = Math.max(1, Math.ceil(n / 2 / Math.floor((W - L) / 60)));
+  sem.forEach((s, i) => { if (s.h === 1 && (s.y % paso === 0)) txt(g, x(i) + bw / 2, H - 10, String(s.y), { "text-anchor": "middle" }); });
+  // Columnas: desembolso arriba; capital, intereses y comisiones apiladas abajo con 2 px de separación
+  const marcas = el("g", {}, svg);
+  sem.forEach((s, i) => {
+    const cx = x(i), gi = el("g", { "data-i": i }, marcas);
+    barra(gi, cx, y0 - 1, y(s.des), bw, "var(--s1)", true);
+    const capas = [["cap", "var(--s2)"], ["int", "var(--s3)"], ["com", "var(--s4)"]].filter(([k]) => s[k] > 1e-6);
+    let acc = 0;
+    capas.forEach(([k, col], j) => {
+      const a = acc, b = acc + s[k]; acc = b;
+      const ya = y(-a) + (j === 0 ? 1 : 1), yb = y(-b) - (j === capas.length - 1 ? 0 : 1);
+      barra(gi, cx, ya, yb, bw, col, j === capas.length - 1);
+    });
+  });
+  // Marcas de hitos: primera cuota y fin del plazo para desembolsar
+  const iDe = f => sem.findIndex(s => s.y === f.getUTCFullYear() && s.h === (f.getUTCMonth() < 6 ? 1 : 2));
+  [[R.primera, "1.ª cuota"], [R.plazoLim, "fin del plazo"]].forEach(([f, lab], j) => {
+    const i = iDe(f); if (i < 0) return; const xx = L + i * band + band / 2;
+    el("line", { x1: xx, x2: xx, y1: T, y2: H - B, stroke: "var(--ink-2)", "stroke-width": 1, "stroke-opacity": 0.5 }, g);
+    txt(g, xx + 4, T + 10 + j * 13, lab, { fill: "var(--ink-2)" });
+  });
+  // Capa de interacción: una zona por semestre
+  const hits = el("g", {}, svg);
+  sem.forEach((s, i) => {
+    const r = el("rect", { x: L + i * band, y: T, width: band, height: plotH, class: "hit", tabindex: 0,
+      "aria-label": `${s.key}: desembolso ${num(s.des)}, capital ${num(s.cap)}, intereses ${num(s.int)}, comisiones ${num(s.com)} millones` }, hits);
+    const show = ev => mostrar(i, ev, box); r.addEventListener("pointermove", show); r.addEventListener("focus", show);
+    r.addEventListener("pointerleave", ocultar); r.addEventListener("blur", ocultar);
+  });
+  estado.flujos = { marcas, band, L, x };
+}
+
+function dibujarSaldo(R) {
+  const box = $("saldo"); box.innerHTML = "";
+  const W = Math.max(320, box.clientWidth), H = 220, L = 48, Rm = 10, T = 12, B = 30;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Línea del saldo deudor por semestre" }, box);
+  const sem = R.sem, n = sem.length, mx = Math.max(...sem.map(s => s.saldo), 0.01), tk = ticks(mx, 4), top = tk[tk.length - 1];
+  const plotH = H - T - B, y = v => T + plotH * (1 - v / top);
+  const band = (W - L - Rm) / n, xc = i => L + i * band + band / 2;
+  tk.forEach(v => { el("line", { x1: L, x2: W - Rm, y1: y(v), y2: y(v), stroke: v === 0 ? "var(--axis)" : "var(--grid)" }, svg);
+    txt(svg, L - 6, y(v) + 4, num(v, 0), { "text-anchor": "end" }); });
+  const paso = Math.max(1, Math.ceil(n / 2 / Math.floor((W - L) / 60)));
+  sem.forEach((s, i) => { if (s.h === 1 && s.y % paso === 0) txt(svg, xc(i), H - 10, String(s.y), { "text-anchor": "middle" }); });
+  const pts = sem.map((s, i) => [xc(i), y(s.saldo)]);
+  const dl = "M" + pts.map(p => p.join(",")).join("L");
+  el("path", { d: dl + `L${pts[n - 1][0]},${y(0)}L${pts[0][0]},${y(0)}z`, fill: "var(--s7)", "fill-opacity": 0.1 }, svg);
+  el("path", { d: dl, fill: "none", stroke: "var(--s7)", "stroke-width": 2, "stroke-linejoin": "round", "stroke-linecap": "round" }, svg);
+  // Etiqueta del máximo
+  let im = 0; sem.forEach((s, i) => { if (s.saldo > sem[im].saldo) im = i; });
+  el("circle", { cx: pts[im][0], cy: pts[im][1], r: 4, fill: "var(--s7)", stroke: "var(--surface)", "stroke-width": 2 }, svg);
+  txt(svg, pts[im][0] + 8, pts[im][1] - 6, "máximo: " + num(sem[im].saldo) + " M", { fill: "var(--ink-2)" });
+  const cross = el("line", { x1: 0, x2: 0, y1: T, y2: H - B, stroke: "var(--ink-2)", "stroke-width": 1, opacity: 0 }, svg);
+  const dot = el("circle", { r: 4, fill: "var(--s7)", stroke: "var(--surface)", "stroke-width": 2, opacity: 0 }, svg);
+  const hit = el("rect", { x: L, y: T, width: W - L - Rm, height: plotH, class: "hit" }, svg);
+  hit.addEventListener("pointermove", ev => { const pt = ev.offsetX * (W / svg.clientWidth);
+    const i = Math.max(0, Math.min(n - 1, Math.floor((pt - L) / band))); mostrar(i, ev, box); });
+  hit.addEventListener("pointerleave", ocultar);
+  estado.saldo = { cross, dot, xc, y };
+}
+
+function mostrar(i, ev, box) {
+  const s = estado.R.sem[i]; marcado = i;
+  // Resaltar la columna y mover la cruceta del saldo
+  estado.flujos.marcas.querySelectorAll("g[data-i]").forEach(g => g.setAttribute("opacity", +g.dataset.i === i ? 1 : 0.45));
+  const { cross, dot, xc, y } = estado.saldo;
+  cross.setAttribute("x1", xc(i)); cross.setAttribute("x2", xc(i)); cross.setAttribute("opacity", 0.6);
+  dot.setAttribute("cx", xc(i)); dot.setAttribute("cy", y(s.saldo)); dot.setAttribute("opacity", 1);
+  const tip = $("tip"); tip.replaceChildren();
+  const t = document.createElement("div"); t.className = "t"; t.textContent = (s.h === 1 ? "1.er semestre " : "2.º semestre ") + s.y + " · US$ millones"; tip.appendChild(t);
+  const fila = (nombre, color, v) => { const r = document.createElement("div"); r.className = "r";
+    const k = document.createElement("span"); k.className = "k"; const ii = document.createElement("i"); ii.style.background = color; k.append(ii, document.createTextNode(nombre));
+    const b = document.createElement("b"); b.textContent = num(v); r.append(b, k); tip.appendChild(r); };
+  SERIES.forEach(se => fila(se.n, se.c, s[se.k]));
+  fila("Saldo deudor", "var(--s7)", s.saldo);
+  fila("Por desembolsar", "var(--muted)", s.porDes);
+  // Posición: junto al puntero (o junto a la columna si viene del teclado), en coordenadas de la ventana
+  let px, py;
+  if (ev && ev.clientX) { px = ev.clientX + 14; py = ev.clientY + 14; }
+  else { const rr = ev.target.getBoundingClientRect(); px = rr.right + 8; py = rr.top + 20; }
+  tip.classList.add("on");
+  const tw = tip.offsetWidth, th = tip.offsetHeight;
+  if (px + tw > window.innerWidth - 8) px = Math.max(8, px - tw - 28);
+  if (py + th > window.innerHeight - 8) py = Math.max(8, py - th - 28);
+  tip.style.left = px + "px"; tip.style.top = py + "px";
+}
+function ocultar() { $("tip").classList.remove("on"); marcado = -1;
+  if (estado && estado.flujos) estado.flujos.marcas.querySelectorAll("g[data-i]").forEach(g => g.setAttribute("opacity", 1));
+  if (estado && estado.saldo) { estado.saldo.cross.setAttribute("opacity", 0); estado.saldo.dot.setAttribute("opacity", 0); } }
+
+// Línea de tiempo (Gantt) del préstamo simulado
+function dibujarGantt(R) {
+  const box = $("gantt"); box.innerHTML = "";
+  const W = Math.max(320, box.clientWidth), filas = [
+    ["Desembolso", R.primDes, R.ultDes, "var(--s1)"],
+    ["Gracia de capital", R.firma, R.primera, "var(--neutral)"],
+    ["Pago de capital", R.primera, R.ultima, "var(--s2)"],
+    ["Pago de intereses", R.primDes, R.ultima, "var(--s3)"],
+  ];
+  const Lw = Math.min(150, W * 0.3), Rm = 16, T = 22, fh = 42, H = T + filas.length * fh + 30;
+  const a0 = Math.floor(anioDec(R.firma)), a1 = Math.ceil(anioDec(R.ultima)) + 0.01;
+  const x = f => Lw + (anioDec(f) - a0) / (a1 - a0) * (W - Lw - Rm);
+  const xa = a => Lw + (a - a0) / (a1 - a0) * (W - Lw - Rm);
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Línea de tiempo con las etapas del préstamo" }, box);
+  const paso = Math.max(1, Math.ceil((a1 - a0) / Math.floor((W - Lw) / 48)));
+  for (let a = a0; a <= a1; a += paso) { el("line", { x1: xa(a), x2: xa(a), y1: T - 6, y2: H - 22, stroke: "var(--grid)" }, svg);
+    txt(svg, xa(a), H - 8, String(a), { "text-anchor": "middle" }); }
+  // Firma y fin del plazo
+  el("line", { x1: x(R.plazoLim), x2: x(R.plazoLim), y1: T - 6, y2: H - 22, stroke: "var(--ink-2)", "stroke-dasharray": "0", "stroke-opacity": 0.5 }, svg);
+  txt(svg, x(R.plazoLim) + 4, T - 8, "fin del plazo para desembolsar", { fill: "var(--ink-2)" });
+  filas.forEach(([lab, f0, f1, col], j) => {
+    const yy = T + j * fh + 8;
+    txt(svg, 0, yy + 9, lab, { fill: "var(--ink)", "font-size": 12.5 });
+    const xa0 = x(f0), xa1 = Math.max(x(f1), xa0 + 3);
+    el("rect", { x: xa0, y: yy, width: xa1 - xa0, height: 12, rx: 4, fill: col }, svg);
+    const etiqueta = fTxt(f0) + " → " + fTxt(f1) + " (" + num(anios(f0, f1)) + " años)";
+    // Etiqueta a la derecha de la barra; si no cabe, a la izquierda; si tampoco, debajo
+    const ancho = etiqueta.length * 6.2, tx = xa1 + 6;
+    if (tx + ancho < W) txt(svg, tx, yy + 10, etiqueta, { fill: "var(--ink-2)" });
+    else if (xa0 - 6 - ancho > Lw) txt(svg, xa0 - 6, yy + 10, etiqueta, { fill: "var(--ink-2)", "text-anchor": "end" });
+    else txt(svg, xa0, yy + 25, etiqueta, { fill: "var(--ink-2)" });
+  });
+}
+
+// Comparación de los 5 contratos (datos fijos)
+function dibujarComparar() {
+  const box = $("comparar"); box.innerHTML = "";
+  const ks = ["7961-PE", "PE-L1101", "8226-PE", "8517-PE", "PE-L1228", "PE-L1224", "9274-PE"];
+  const W = Math.max(320, box.clientWidth), Lw = Math.min(170, W * 0.32), Rm = 14, T = 8, fh = 40, H = T + ks.length * fh + 24;
+  const a0 = 2011, a1 = 2039; const xa = a => Lw + (a - a0) / (a1 - a0) * (W - Lw - Rm); const x = f => xa(anioDec(f));
+  const svg = el("svg", { viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Horizonte de los cinco contratos del piloto" }, box);
+  const paso = W < 600 ? 6 : 3;
+  for (let a = a0; a <= a1; a += paso) { el("line", { x1: xa(a), x2: xa(a), y1: T, y2: H - 20, stroke: "var(--grid)" }, svg); txt(svg, xa(a), H - 6, String(a), { "text-anchor": "middle" }); }
+  ks.forEach((k, j) => {
+    const c = CASOS[k], f0 = fecha(c.firma), fd = sumaMeses(f0, Math.round(c.plazoDes * 12)), p1 = fecha(c.primera);
+    const pN = sumaMeses(p1, 6 * (c.cuotas.length - 1)), yy = T + j * fh + 10;
+    txt(svg, 0, yy + 4, (c.banco + " " + k.replace("-PE", "")), { fill: "var(--ink)", "font-size": 12.5 });
+    txt(svg, 0, yy + 18, "US$ " + c.monto + " M · " + num(anios(f0, pN)) + " años", { "font-size": 11 });
+    el("line", { x1: x(f0), x2: x(p1), y1: yy + 12, y2: yy + 12, stroke: "var(--neutral)", "stroke-width": 3, "stroke-linecap": "round" }, svg);
+    el("rect", { x: x(f0), y: yy - 2, width: Math.max(3, x(fd) - x(f0)), height: 9, rx: 4, fill: "var(--s1)" }, svg);
+    el("rect", { x: x(p1), y: yy + 8, width: Math.max(3, x(pN) - x(p1)), height: 9, rx: 4, fill: "var(--s2)" }, svg);
+    if (fd > p1) { // etiqueta a la derecha si cabe; si no, alineada al borde derecho, sobre la fila
+      const et = "paga capital antes de cerrar desembolsos", ancho = et.length * 5.6;
+      if (x(pN) + 6 + ancho < W) txt(svg, x(pN) + 6, yy + 16, et, { fill: "var(--ink-2)", "font-size": 11 });
+      else txt(svg, W - 2, yy - 6, et, { fill: "var(--ink-2)", "font-size": 11, "text-anchor": "end" });
+    }
+  });
+}
+
+// ===================== PROCESO 6: Cifras, lectura y tabla =====================
+function tile(lab, val, det) { const d = document.createElement("div"); d.className = "tile";
+  const a = document.createElement("div"); a.className = "lab"; a.textContent = lab;
+  const b = document.createElement("div"); b.className = "num"; b.textContent = val;
+  const c = document.createElement("div"); c.className = "det"; c.textContent = det || ""; d.append(a, b, c); return d; }
+function cifras(R, s) {
+  const c = CASOS[casoActual], costo = R.totInt + R.totCom;
+  const box = $("tiles"); box.replaceChildren(
+    tile("Gracia de capital", num(anios(R.firma, R.primera)) + " años", "de la firma a la primera cuota"),
+    tile("Plazo total", num(anios(R.firma, R.ultima)) + " años", "de la firma a la última cuota"),
+    tile("Período de desembolso", num(anios(R.primDes, R.ultDes) + 1 / 12) + " años", fTxt(R.primDes) + " a " + fTxt(R.ultDes)),
+    tile("Vida promedio (VPP)", num(R.vpp, 2) + " años", c.vppContrato && s.perfil === "contrato" && s.demora === 0 ? "el contrato dice " + num(c.vppContrato, 2) : "calculada"),
+    tile("Intereses", "US$ " + num(R.totInt) + " M", "con tasa de " + num(s.tasa + s.margen, 2) + " % anual"),
+    tile("Comisiones", "US$ " + num(R.totCom) + " M", "compromiso + inicial"),
+    tile("Costo financiero", num(100 * costo / R.monto) + " %", "intereses y comisiones sobre el monto"),
+  );
+  const t = `Con estos supuestos, el Perú recibe el dinero entre ${fTxt(R.primDes)} y ${fTxt(R.ultDes)}, paga solo intereses hasta ${fTxt(R.primera)} y termina de pagar en ${fTxt(R.ultima)}: ${num(anios(R.firma, R.ultima))} años desde la firma. ` +
+    `Por cada US$ 100 prestados devuelve los US$ 100 y paga además US$ ${num(100 * costo / R.monto)} en intereses y comisiones.` +
+    (R.solape > 0.05 ? ` Durante ${num(R.solape)} años paga capital mientras todavía recibe desembolsos.` : "");
+  $("lectura").textContent = t;
+  const av = $("aviso");
+  if (R.excede) { av.textContent = `La demora hace que el último desembolso (${fTxt(R.ultDes)}) caiga después del fin del plazo (${fTxt(R.plazoLim)}). En la realidad haría falta pedir al banco una ampliación del plazo (una modificación del contrato). Mientras tanto se sigue pagando la comisión de compromiso sobre lo no desembolsado.` +
+    (R.recorte ? " Con una demora tan grande, el desembolso alcanzaría a la última cuota: el simulador lo cortó un mes antes. En la realidad, el banco tendría que rehacer el cronograma de pagos." : ""); av.classList.add("on"); }
+  else av.classList.remove("on");
+}
+function tabla(R) {
+  const tb = $("tabla"); tb.replaceChildren();
+  const h = tb.createTHead().insertRow();
+  ["Semestre", "Desembolso", "Capital", "Intereses", "Comisiones", "Total pagado", "Saldo deudor", "Por desembolsar"].forEach(t => { const th = document.createElement("th"); th.textContent = t; h.appendChild(th); });
+  const body = tb.createTBody();
+  R.sem.forEach(s => { const r = body.insertRow();
+    [s.key, s.des, s.cap, s.int, s.com, s.cap + s.int + s.com, s.saldo, s.porDes].forEach((v, j) => { r.insertCell().textContent = j ? num(v, 2) : v; }); });
+}
+
+// ===================== PROCESO 7: Ciclo de actualización =====================
+function leyenda() { const l = $("leg1"); l.replaceChildren(); SERIES.forEach(se => { const s = document.createElement("span");
+  const i = document.createElement("i"); i.className = "sw"; i.style.background = se.c; s.append(i, document.createTextNode(se.n)); l.appendChild(s); }); }
+function actualizar() {
+  const s = leer(); $("demoraV").textContent = s.demora ? s.demora + " meses" : "sin demora";
+  const R = simular(s); estado = { R };
+  cifras(R, s); dibujarGantt(R); dibujarFlujos(R); dibujarSaldo(R); tabla(R);
+}
+(function init() {
+  const sel = $("caso");
+  Object.entries(CASOS).forEach(([k, c]) => { const o = document.createElement("option"); o.value = k; o.textContent = c.nombre; sel.appendChild(o); });
+  sel.value = casoActual; cargarCaso(casoActual); leyenda();
+  sel.addEventListener("change", () => { cargarCaso(sel.value); actualizar(); });
+  $("reset").addEventListener("click", () => { cargarCaso(casoActual); actualizar(); });
+  document.querySelectorAll(".controls input, .controls select").forEach(e => e.addEventListener("input", actualizar));
+  let tm; window.addEventListener("resize", () => { clearTimeout(tm); tm = setTimeout(() => { actualizar(); dibujarComparar(); }, 120); });
+  actualizar(); dibujarComparar();
+})();
+</script>
+</body>
+</html>

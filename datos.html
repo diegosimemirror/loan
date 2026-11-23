@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Datos · Préstamos multilaterales al Perú</title>
+<meta name="description" content="Las 67 respuestas de cada uno de 19 contratos de préstamo del BID y del Banco Mundial al Perú, con su cita literal y su página.">
+<link rel="stylesheet" href="assets/estilos.css">
+<style>
+.vista { display: inline-flex; border: 1px solid var(--axis); border-radius: 10px; overflow: hidden; }
+.vista button { font: inherit; font-size: 14px; border: 0; background: var(--surface); color: var(--ink-2); padding: 8px 14px; cursor: pointer; min-height: 38px; }
+.vista button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+.controles { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: end; margin: 14px 0 12px; }
+.controles label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink-2); }
+.controles select, .controles input { font: inherit; font-size: 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--axis); border-radius: 8px; padding: 7px 9px; min-height: 38px; max-width: 100%; }
+.controles label { min-width: 0; max-width: 100%; }
+.controles select { width: min(420px, calc(100vw - 32px)); }
+.ficha-contrato { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 10px; margin-bottom: 12px; }
+.ficha-contrato div { background: var(--surface); border: 1px solid var(--ring); border-radius: 10px; padding: 10px 12px; }
+.ficha-contrato b { display: block; font-size: 12.5px; color: var(--ink-2); font-weight: 500; }
+.ficha-contrato span { font-size: 15px; font-weight: 600; }
+.docs { font-size: 13.5px; margin: 0 0 12px; }
+.bloque td { background: var(--chip); font-weight: 600; font-size: 13px; }
+td.cita { font-size: 12.5px; color: var(--ink-2); max-width: 46ch; }
+td.cita q { quotes: "«" "»"; }
+td.valor { font-weight: 500; max-width: 40ch; }
+td.nt { font-size: 12.5px; color: var(--muted); max-width: 38ch; }
+td.fecha { white-space: nowrap; }
+.controles label[hidden] { display: none; }
+.controles input[type=search] { width: min(260px, calc(100vw - 32px)); }
+.leyenda { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--ink-2); margin: 6px 0 14px; }
+.cuenta { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
+.descargas { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; }
+@media (max-width: 640px) { td.nt, th.nt { display: none; } }
+</style>
+</head>
+<body>
+<header class="barra"><div class="barra__in">
+  <a class="barra__sitio" href="index.html">Préstamos multilaterales al Perú</a>
+  <nav aria-label="Secciones">
+    <a href="index.html">Inicio</a>
+    <a href="simulador.html">Simulador</a>
+    <a href="datos.html" aria-current="page">Datos</a>
+    <a href="pipeline.html">Cómo se hizo</a>
+    <a href="metodo.html">Método y lecturas</a>
+  </nav>
+</div></header>
+
+<main>
+  <h1 style="font-size:28px">Los datos, contrato por contrato</h1>
+  <p class="lead">A cada contrato se le hicieron las mismas 67 preguntas. Cada respuesta trae la cita literal del contrato y su página, para que puedas comprobarla en el documento oficial.</p>
+
+  <div class="controles">
+    <div class="vista" role="group" aria-label="Forma de ver los datos">
+      <button type="button" id="vContrato" aria-pressed="true">Un contrato</button>
+      <button type="button" id="vVariable" aria-pressed="false">Una pregunta, todos los contratos</button>
+    </div>
+    <label id="lContrato">Contrato <select id="selContrato"></select></label>
+    <label id="lVariable" hidden>Pregunta <select id="selVariable"></select></label>
+    <label>Banco <select id="selBanco"><option value="">Ambos</option><option value="BID">BID</option><option value="BIRF">Banco Mundial (BIRF)</option></select></label>
+    <label>Buscar <input id="buscar" type="search" placeholder="palabra en valor, cita o nota"></label>
+  </div>
+
+  <div class="leyenda" aria-label="Qué significa el estado de cada dato">
+    <span><span class="estado dato">dato</span> lo dice el contrato</span>
+    <span><span class="estado calculado">calculado</span> sale de una cuenta con datos del contrato</span>
+    <span><span class="estado remite">remite</span> el contrato dice quién o dónde se fija</span>
+    <span><span class="estado metadato">metadato</span> viene de una fuente oficial externa</span>
+    <span><span class="estado">0</span> se revisó y no está</span>
+    <span><span class="estado">NA</span> no se puede saber</span>
+    <span><span class="estado">no aplica</span> la pregunta no corresponde</span>
+  </div>
+
+  <div id="cabecera"></div>
+  <p class="cuenta" id="cuenta" role="status"></p>
+  <div class="tablewrap"><table id="tabla"></table></div>
+
+  <section class="seccion">
+    <h2>Descargar</h2>
+    <div class="descargas">
+      <a href="data/base_codificada_v21.tsv">Base codificada (TSV, 1 273 filas)</a>
+      <a href="data/ficha_v21.tsv">Ficha de 67 preguntas</a>
+      <a href="data/fuentes_documentos.tsv">Enlaces a los documentos oficiales</a>
+      <a href="data/fechas_oficiales.tsv">Fechas oficiales (aprobación, firma y cierre)</a>
+      <a href="data/concordancia_muestras.tsv">Comparación de las dos lecturas</a>
+      <a href="data/prestamos_peru_2011_2026.csv">Tabla base de 206 operaciones (CSV)</a>
+    </div>
+  </section>
+</main>
+
+<footer class="pie"><div class="pie__in">
+  <span>Diego Sime · con Claude Code · 22-11-2026</span>
+  <span>Código: licencia MIT · Datos y textos: CC BY 4.0</span>
+  <span>Las citas son fragmentos de contratos publicados por el BID y el Banco Mundial.</span>
+  <a href="https://github.com/diegosimemirror/loan">Repositorio</a>
+</div></footer>
+<script src="assets/datos.js"></script>
+</body>
+</html>

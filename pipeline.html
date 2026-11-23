@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cómo se hizo · Préstamos multilaterales al Perú</title>
+<meta name="description" content="El flujo de trabajo, al estilo n8n: de los decretos supremos del MEF a la base de 19 contratos codificados, con cada control y decisión.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* El proceso de trabajo dibujado como un flujo de n8n (mismo diseño que el pipeline de «Rutas de gestión del Estado»).
+   Cada ficha es un proceso; el color dice el tramo; el talón dice qué resultado deja. */
+:root{
+  --bg:#ebecf0; --surface:#ffffff; --ink:#111111; --muted:#4a4f58; --line:#c3c6cf; --soft:#dcdee4; --dot:#c0c3cc;
+  --band:#111111; --on-band:#ffffff; --band-muted:#b4b8c2;
+  --d:#89f0e1; --f:#a6a0f5; --m:#abf089; --c:#f5ad6e; --r:#f5abe1; --p:#f6e35c; --on-fill:#111111;
+  --focus:#1d4ed8;
+  --font:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#08090c; --surface:#16181d; --ink:#f3f4f6; --muted:#a6abb6; --line:#3b3f4a; --soft:#22252c; --dot:#2a2d37; --band:#16181d; --band-muted:#a6abb6; --focus:#9db4ff; color-scheme:dark; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 15px/1.5 var(--font);-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ol,ul{margin:0}
+ol,ul{padding:0;list-style:none}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1240px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.lbl{font:500 10.5px/1.3 var(--mono);letter-spacing:.07em;text-transform:uppercase}
+.sec{font:500 11px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.t-D{--sc:var(--d)} .t-F{--sc:var(--f)} .t-M{--sc:var(--m)} .t-C{--sc:var(--c)} .t-R{--sc:var(--r)} .t-P{--sc:var(--p)}
+
+.top{background:var(--band);color:var(--on-band)}
+.top .wrap{padding-block:22px 20px}
+.top h1{font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.top p{color:var(--band-muted);max-width:66ch;margin-top:6px}
+.top a{color:var(--on-band)}
+.legend{display:flex;flex-wrap:wrap;gap:4px;margin-top:16px}
+.legend li{background:var(--sc);color:var(--on-fill);font-size:13px;font-weight:700;padding:4px 9px;border-radius:4px}
+main{padding-block:26px 64px;display:grid;gap:34px}
+main>*{min-width:0}
+h2{font-size:19px;font-weight:800;line-height:1.2}
+.lead{color:var(--muted);max-width:72ch;margin-top:4px}
+
+/* Lienzo */
+.canvas{position:relative;padding:24px 22px;margin-inline:-6px;border-radius:12px;background-image:radial-gradient(var(--dot) 1.3px,transparent 1.5px);background-size:22px 22px}
+.canvas>svg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.nodes{display:grid;grid-template-columns:repeat(auto-fill,minmax(188px,1fr));gap:46px 40px}
+.nodes>li{min-width:0}
+.node{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto 1fr auto;grid-template-areas:"num tag" "name name" "who who" "stub stub";height:100%;border-radius:10px;overflow:hidden;background:var(--sc);color:var(--on-fill)}
+.n-num{grid-area:num;font:800 34px/1 var(--font);letter-spacing:-.03em;font-variant-numeric:tabular-nums;padding:13px 0 0 14px}
+.n-tag{grid-area:tag;justify-self:end;align-self:start;padding:15px 14px 0 8px;text-align:right}
+.n-dec{display:inline-flex;gap:6px;align-items:center;background:var(--on-fill);color:var(--sc);padding:2px 7px;border-radius:3px;font-weight:600}
+.n-dec i{width:7px;height:7px;background:currentColor;transform:rotate(45deg)}
+.n-name{grid-area:name;font-weight:700;line-height:1.25;padding:9px 14px 0;text-wrap:balance}
+.n-who{grid-area:who;align-self:end;font-size:13px;line-height:1.3;padding:10px 14px 12px}
+.n-who .lbl,.n-stub .lbl{display:block;opacity:.72;margin-bottom:1px}
+.n-stub{grid-area:stub;position:relative;background:var(--surface);color:var(--ink);border-top:2px dashed var(--bg);padding:9px 14px 12px;font-size:13px;font-weight:700;line-height:1.3}
+.n-stub::before,.n-stub::after{content:"";position:absolute;top:-8px;width:14px;height:14px;border-radius:50%;background:var(--bg)}
+.n-stub::before{left:-7px} .n-stub::after{right:-7px}
+.n-back{display:block;margin-top:5px;font-weight:500;color:var(--muted)}
+.endcap{display:flex;align-items:flex-start;gap:10px}
+.end{flex:none;width:26px;height:26px;margin:17px 0 0 18px;border-radius:50%;border:7px solid var(--ink)}
+.endcap .lbl{margin-top:24px;color:var(--muted)}
+.w{fill:none;stroke:var(--ink);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.port,.ah{fill:var(--ink)}
+
+/* Tablas y listas */
+.tablewrap{overflow-x:auto;background:var(--surface);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:760px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+th{font:500 10.5px/1.3 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+td.n{font:600 12px var(--mono);white-space:nowrap}
+td.n i{display:inline-block;width:10px;height:10px;border-radius:2px;background:var(--sc);margin-right:7px;vertical-align:-1px}
+td b{font-weight:700}
+code{font:500 12px var(--mono);background:var(--soft);padding:1px 5px;border-radius:4px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px 34px}
+.plain{display:grid;gap:8px;max-width:74ch}
+.plain li{padding-left:16px;position:relative}
+.plain li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--ink);border-radius:1px}
+footer .wrap{padding-block:18px 28px;border-top:2px solid var(--ink);font-size:13px;color:var(--muted)}
+@media (max-width:560px){
+  .canvas{padding:8px 0;margin-inline:0}
+  .nodes{grid-template-columns:minmax(0,1fr);gap:34px}
+}
+.sitio{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13.5px;margin-bottom:14px}
+.sitio a{color:var(--band-muted);text-decoration:none}
+.sitio a:hover,.sitio a[aria-current="page"]{color:var(--on-band);text-decoration:underline;text-underline-offset:4px}
+footer a{color:inherit}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <nav class="sitio" aria-label="Secciones del sitio">
+      <a href="index.html">Inicio</a><a href="simulador.html">Simulador</a><a href="datos.html">Datos</a><a href="pipeline.html" aria-current="page">Cómo se hizo</a><a href="metodo.html">Método y lecturas</a>
+    </nav>
+    <h1>Cómo se hizo: de los decretos supremos a este sitio</h1>
+    <p>El trabajo dibujado como un flujo de n8n. Cada ficha es un paso: dice con qué se hizo y qué resultado dejó, que es el insumo del siguiente paso. El color indica el tramo del trabajo.</p>
+    <ul class="legend" aria-label="El color indica el tramo del trabajo">
+      <li class="t-D">Definir y decidir</li><li class="t-F">Fuentes y lectura</li><li class="t-M">Codificar</li><li class="t-C">Construir</li><li class="t-R">Revisar</li><li class="t-P">Publicar</li>
+    </ul>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section aria-labelledby="h-flujo">
+  <h2 id="h-flujo">El flujo, de principio a fin</h2>
+  <p class="lead">Veinte pasos. Los que llevan rombo son decisiones del autor o controles de calidad. Si un control falla, el trabajo vuelve atrás.</p>
+  <div class="canvas" id="canvas" style="margin-top:12px"><svg aria-hidden="true"></svg><ol class="nodes" id="nodes"></ol></div>
+</section>
+
+<section aria-labelledby="h-mapa">
+  <h2 id="h-mapa">Mapa de procesos</h2>
+  <p class="lead">La misma secuencia en la forma insumo → método → resultado.</p>
+  <div class="tablewrap" style="margin-top:12px"><table><thead><tr><th>N.º</th><th>Proceso</th><th>Insumo</th><th>Método</th><th>Resultado</th></tr></thead><tbody id="tabla"></tbody></table></div>
+</section>
+
+<div class="cols">
+<section aria-labelledby="h-arch">
+  <h2 id="h-arch">Archivos</h2>
+  <p class="lead" style="margin-bottom:10px">Todo lo que produjo el flujo está en el repositorio, menos los PDF: se enlaza a su fuente oficial.</p>
+  <div class="tablewrap"><table style="min-width:0"><thead><tr><th>Archivo</th><th>Qué contiene</th></tr></thead><tbody>
+    <tr><td><code>data/prestamos_peru_2011_2026.csv</code></td><td>Tabla base: 206 operaciones con su decreto supremo y sus condiciones.</td></tr>
+    <tr><td><code>data/ficha_v21.tsv</code></td><td>Las 67 preguntas, con su regla y dónde buscar.</td></tr>
+    <tr><td><code>data/base_codificada_v21.tsv</code></td><td>Las 1 273 respuestas de los 19 contratos, con cita y página.</td></tr>
+    <tr><td><code>data/concordancia_muestras.tsv</code></td><td>Las dos lecturas de cada muestra, lado a lado.</td></tr>
+    <tr><td><code>data/fechas_oficiales.tsv</code></td><td>Aprobación, firma y cierre real según los bancos.</td></tr>
+    <tr><td><code>data/fuentes_documentos.tsv</code></td><td>El enlace oficial de cada contrato y enmienda.</td></tr>
+    <tr><td><code>scripts/</code></td><td>Extraer páginas, verificar citas, comparar lecturas y aplicar las decisiones.</td></tr>
+    <tr><td><code>metodo/encargo_agentes_v21.md</code></td><td>Las instrucciones que recibieron los agentes de IA.</td></tr>
+  </tbody></table></div>
+</section>
+
+<section aria-labelledby="h-herr">
+  <h2 id="h-herr">Herramientas</h2>
+  <p class="lead" style="margin-bottom:10px">No se instaló ningún paquete nuevo.</p>
+  <div class="tablewrap"><table style="min-width:0"><thead><tr><th>Herramienta</th><th>Para qué se usó</th></tr></thead><tbody>
+    <tr><td><b>pdftotext</b></td><td>Convertir los PDF a texto, página por página.</td></tr>
+    <tr><td><b>Python y pandas</b></td><td>Verificar citas, comparar lecturas y armar las tablas y los libros Excel.</td></tr>
+    <tr><td><b>Node.js</b></td><td>Probar el simulador contra la vida promedio de los contratos.</td></tr>
+    <tr><td><b>APIs públicas</b></td><td>Datos abiertos del BID (data.iadb.org) y proyectos del Banco Mundial (search.worldbank.org).</td></tr>
+    <tr><td><b>Chrome</b></td><td>Revisar las páginas en computadora y celular.</td></tr>
+    <tr><td><b>git y GitHub Pages</b></td><td>Publicar el sitio.</td></tr>
+    <tr><td><b>Claude Code</b></td><td>Agente de IA que leyó los contratos, escribió el código y coordinó a los agentes lectores, con las decisiones del autor.</td></tr>
+  </tbody></table></div>
+</section>
+</div>
+
+<div class="cols">
+<section aria-labelledby="h-dec">
+  <h2 id="h-dec">Decisiones que marcaron el resultado</h2>
+  <ul class="plain" style="margin-top:10px">
+    <li>Leer contratos y no resúmenes: cada dato tiene cita y página.</li>
+    <li>Tratar las condiciones generales como plantilla y concentrar la lectura en lo negociado.</li>
+    <li>Cuando dos lectores no coinciden, el problema está en la pregunta: se corrige la regla y se aplica a todos.</li>
+    <li>«Lo fija el banco según su política» se escribe tal cual: un cero haría creer que no hay margen.</li>
+    <li>Solo cuentan como reglas propias de compra las negociadas para ese préstamo; las de plantilla van en la nota.</li>
+    <li>La doble lectura completa se hizo en el piloto y luego en una muestra del 20 % de cada tanda.</li>
+  </ul>
+</section>
+<section aria-labelledby="h-lim">
+  <h2 id="h-lim">Límites del proceso</h2>
+  <ul class="plain" style="margin-top:10px">
+    <li>Solo el BID y el Banco Mundial publican sus contratos: la base no incluye a la CAF, el KfW ni JICA.</li>
+    <li>La verificación comprueba que cada cita exista en su página, no que la interpretación jurídica sea correcta.</li>
+    <li>Los textos escaneados tienen errores de OCR. Cinco préstamos no se pudieron leer y quedan para una etapa con OCR.</li>
+    <li>Las reestructuraciones del Banco Mundial no están en el corpus: el atraso se mide con la fecha de cierre real.</li>
+  </ul>
+</section>
+</div>
+
+</main>
+<footer><div class="wrap">Pipeline de trabajo al 22 de noviembre de 2026: 206 operaciones, 19 contratos codificados, 67 preguntas, 1 273 respuestas y 944 citas verificadas. · Diego Sime · con Claude Code · <a href="https://github.com/diegosimemirror/loan">Repositorio</a></div></footer>
+
+<script>
+/* ============================================================
+   PROCESO A: Datos del pipeline
+   Insumo:    lo que se hizo en cada etapa del trabajo
+   Resultado: una lista; de ella salen las fichas del flujo y la tabla
+   Cada fila: t = tramo (color), n = nombre, con = quién o con qué, ins = insumo,
+   met = método, res = resultado, dec = punto de decisión o control, back = adónde vuelve si falla
+   ============================================================ */
+const PASOS = [
+ {t:'D', n:'Preguntas de partida', con:'El autor', ins:'La necesidad de entender cómo se estructuran los préstamos para proyectos de inversión.', met:'Formular las preguntas: tasa, gracia, plazo, desembolsos, no objeción, garantías, competencia entre bancos e influencia.', res:'8 preguntas de partida'},
+ {t:'F', n:'Tabla base de operaciones', con:'Agente de IA; gob.pe y bases de los bancos', ins:'Los decretos supremos del MEF publicados en gob.pe.', met:'Revisar los 5 518 decretos de 2011 a 2026, quedarse con los que aprueban endeudamiento y cruzarlos con las bases del BID y del Banco Mundial.', res:'206 operaciones'},
+ {t:'F', n:'Descarga de documentos', con:'Páginas del BID y API de documentos del Banco Mundial', ins:'Las 206 operaciones.', met:'Descargar contratos, enmiendas y decretos, y verificar que cada archivo sea un PDF válido.', res:'384 documentos'},
+ {t:'R', n:'¿Qué es cada archivo?', con:'pdftotext (primera página)', dec:true, back:'Los mal rotulados no entran', ins:'133 archivos del BID rotulados «contrato».', met:'Leer la primera página y clasificar: contrato, resolución del Directorio, propuesta de préstamo o informe de seguimiento.', res:'15 contratos reales del BID'},
+ {t:'F', n:'Método y lecturas', con:'Agente de IA (búsqueda web)', ins:'Las preguntas de partida.', met:'Buscar manuales de los bancos y estudios académicos, y verificar cada referencia antes de usarla.', res:'Método Gelpern y lista de lecturas'},
+ {t:'M', n:'Ficha de preguntas v1', con:'Agente de IA', ins:'El método y las preguntas.', met:'Una pregunta por dato, con definición, regla para responder y dónde buscar en cada banco.', res:'56 preguntas en 9 bloques'},
+ {t:'F', n:'Texto por página', con:'pdftotext y extrae_paginas.sh', ins:'Los PDF de los contratos.', met:'Convertirlos a texto con marcadores de página, para poder citar.', res:'Textos citables'},
+ {t:'M', n:'Piloto con dos lectores', con:'Claude y un agente independiente', ins:'5 contratos: 3 del BID y 2 del Banco Mundial.', met:'Cada lector responde la ficha sin ver al otro, con cita literal y página.', res:'2 lecturas de 280 respuestas'},
+ {t:'R', n:'Comparar lecturas', con:'compara.py', dec:true, back:'Si hay desacuerdos de fondo, va al 10', ins:'Las dos lecturas.', met:'Comparar valor y estado, y separar las diferencias de forma de las de fondo.', res:'94 % de acuerdo de fondo; 16 desacuerdos'},
+ {t:'D', n:'Decisión: reglas de la ficha', con:'El autor', dec:true, ins:'Los 16 desacuerdos, explicados en simple.', met:'Elegir cómo se responde cada pregunta ambigua, por ejemplo cuándo una compra con reglas peruanas es «parcial».', res:'Ficha v2: 66 preguntas'},
+ {t:'C', n:'Simulador', con:'HTML y JavaScript', ins:'Los cronogramas reales del piloto.', met:'Simular mes a mes el desembolso, la gracia y el pago, y comparar la vida promedio con la del contrato.', res:'Reproduce la vida promedio de 3 contratos'},
+ {t:'M', n:'Tanda 1: contratos del BID', con:'3 agentes de IA en paralelo', ins:'9 contratos del BID.', met:'Aplicar la ficha v2 con cita y página.', res:'594 respuestas'},
+ {t:'R', n:'Muestra de control', con:'Un agente independiente y compara.py', dec:true, back:'Si baja el acuerdo, se revisa la ficha', ins:'2 de los 9 contratos.', met:'Segunda lectura sin ver la primera y comparación.', res:'98 % de acuerdo de fondo'},
+ {t:'D', n:'Decisión: 5 reglas más', con:'El autor', dec:true, ins:'Las dudas de la tanda 1.', met:'Decidir cómo contar condiciones previas, qué es una regla de compra negociada y qué hacer cuando una regla pasa a la política del banco.', res:'Ficha v2.1: 67 preguntas'},
+ {t:'R', n:'Fuentes oficiales', con:'APIs del BID y del Banco Mundial; Finances One', dec:true, back:'Si no coincide, se anota la diferencia', ins:'Las fechas deducidas de los contratos.', met:'Contrastar la aprobación y la firma, y traer la fecha de cierre real de cada proyecto.', res:'Fechas confirmadas; atrasos medidos'},
+ {t:'M', n:'Tanda 2: Banco Mundial', con:'3 agentes de IA y una muestra de control', ins:'10 préstamos de inversión de 2011 a 2017, con sus enmiendas.', met:'Aplicar la ficha v2.1 y unificar criterios entre lotes.', res:'670 respuestas; 94 % de acuerdo'},
+ {t:'R', n:'Verificar citas', con:'verifica_citas_v2.py', dec:true, back:'Si una cita falla, se corrige', ins:'La base unida de 19 contratos.', met:'Buscar cada cita, palabra por palabra, en la página indicada.', res:'944 citas, ninguna falla'},
+ {t:'C', n:'Sitio web', con:'HTML, CSS y JavaScript, sin librerías', ins:'La base, la ficha y el simulador.', met:'Inicio con hallazgos, simulador, explorador de datos, este pipeline y el método.', res:'5 páginas'},
+ {t:'P', n:'Publicar', con:'git y GitHub Pages', ins:'El sitio revisado.', met:'Subirlo al repositorio y agregarlo al portafolio.', res:'Sitio en línea'},
+ {t:'D', n:'Registro y siguiente etapa', con:'Agente de IA y el autor', ins:'Las decisiones, los hallazgos y lo que falta.', met:'Anotar qué falta: 13 préstamos del Banco Mundial de 2017 a 2026, OCR de 5 escaneados y recodificar el piloto.', res:'Plan de la etapa siguiente'}
+];
+
+/* ============================================================
+   PROCESO B: Dibujar las fichas y la tabla
+   Insumo:    la lista PASOS
+   Resultado: el flujo y el mapa de procesos en la página
+   ============================================================ */
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const dos = n => String(n).padStart(2, '0');
+document.getElementById('nodes').innerHTML = PASOS.map((p, i) =>
+  '<li><div class="node t-' + p.t + '"><span class="n-num">' + dos(i + 1) + '</span>' +
+  '<span class="n-tag lbl">' + (p.dec ? '<span class="n-dec"><i></i>' + (p.t === 'D' ? 'Decisión' : 'Control') + '</span>' : '') + '</span>' +
+  '<span class="n-name">' + esc(p.n) + '</span>' +
+  '<span class="n-who"><span class="lbl">Con</span>' + esc(p.con) + '</span>' +
+  '<span class="n-stub"><span class="lbl">Resultado</span>' + esc(p.res) + (p.back ? '<span class="n-back">' + esc(p.back) + '</span>' : '') + '</span></div></li>').join('') +
+  '<li class="endcap"><i class="end"></i><span class="lbl">Sitio publicado</span></li>';
+document.getElementById('tabla').innerHTML = PASOS.map((p, i) =>
+  '<tr class="t-' + p.t + '"><td class="n"><i></i>' + dos(i + 1) + '</td><td><b>' + esc(p.n) + '</b><br>' + esc(p.con) + '</td><td>' + esc(p.ins) + '</td><td>' + esc(p.met) + '</td><td><b>' + esc(p.res) + '</b></td></tr>').join('');
+
+/* ============================================================
+   PROCESO C: Trazar los cables
+   Insumo:    la posición real de cada ficha en la pantalla
+   Resultado: líneas con flecha entre fichas; se vuelven a trazar si cambia el ancho
+   ============================================================ */
+const f1 = n => Math.round(n * 10) / 10;
+function caja(el, base){ const a = el.getBoundingClientRect(), b = base.getBoundingClientRect(), l = a.left - b.left, t = a.top - b.top; return {l, t, r:l + a.width, b:t + a.height}; }
+function camino(pts, rad){   // une los puntos con tramos rectos y esquinas redondeadas
+  let d = 'M' + f1(pts[0][0]) + ' ' + f1(pts[0][1]);
+  for(let i = 1; i < pts.length; i++){
+    const p = pts[i], a = pts[i - 1], c = pts[i + 1];
+    if(!c){ d += 'L' + f1(p[0]) + ' ' + f1(p[1]); break; }
+    const r = Math.min(rad, (Math.abs(p[0] - a[0]) + Math.abs(p[1] - a[1])) / 2, (Math.abs(c[0] - p[0]) + Math.abs(c[1] - p[1])) / 2);
+    d += 'L' + f1(p[0] + Math.sign(a[0] - p[0]) * r) + ' ' + f1(p[1] + Math.sign(a[1] - p[1]) * r) + 'Q' + f1(p[0]) + ' ' + f1(p[1]) + ' ' + f1(p[0] + Math.sign(c[0] - p[0]) * r) + ' ' + f1(p[1] + Math.sign(c[1] - p[1]) * r);
+  }
+  return d;
+}
+function trazar(){
+  const cv = document.getElementById('canvas'), svg = cv.querySelector('svg'), lis = Array.from(cv.querySelectorAll('.nodes > li')), PY = 30;
+  let out = '';
+  for(let i = 0; i < lis.length - 1; i++){
+    const LA = caja(lis[i], cv), LB = caja(lis[i + 1], cv), A = caja(lis[i].firstElementChild, cv), B = caja(lis[i + 1].firstElementChild, cv);
+    const ya = LA.t + PY, yb = LB.t + PY; let pts, abajo = false;
+    if(Math.abs(LA.t - LB.t) < 3 && LB.l > LA.l) pts = [[A.r, ya], [B.l - 8, yb]];                       // misma fila
+    else if(Math.abs(LA.l - LB.l) < 3){ const x = LA.l + 31; pts = [[x, A.b], [x, B.t - 8]]; abajo = true; } // una sola columna
+    else { const my = LA.b + (LB.t - LA.b) / 2, x1 = A.r + 16, x2 = B.l - 18; pts = [[A.r, ya], [x1, ya], [x1, my], [x2, my], [x2, yb], [B.l - 8, yb]]; } // salto de fila
+    const e = pts[pts.length - 1], s = pts[0];
+    const punta = abajo ? [[e[0] - 5.5, e[1]], [e[0] + 5.5, e[1]], [e[0], e[1] + 8]] : [[e[0], e[1] - 5.5], [e[0], e[1] + 5.5], [e[0] + 8, e[1]]];
+    out += '<path class="w" d="' + camino(pts, 10) + '"/><circle class="port" cx="' + f1(s[0]) + '" cy="' + f1(s[1]) + '" r="4.5"/><polygon class="ah" points="' + punta.map(p => f1(p[0]) + ',' + f1(p[1])).join(' ') + '"/>';
+  }
+  svg.innerHTML = out;
+}
+let cuadro = 0;
+const alCambiar = () => { cancelAnimationFrame(cuadro); cuadro = requestAnimationFrame(trazar); };
+if(window.ResizeObserver) new ResizeObserver(alCambiar).observe(document.getElementById('canvas')); else window.addEventListener('resize', alCambiar);
+if(document.fonts && document.fonts.ready) document.fonts.ready.then(trazar);
+trazar();
+</script>
+</body>
+</html>

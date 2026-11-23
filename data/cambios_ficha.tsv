@@ -1,0 +1,33 @@
+id	tipo de cambio	origen	motivo
+A01	modificada	Decisión del usuario (21-11-2026)	El código no figura en el texto del contrato; se toma del nombre del archivo o de la tabla base.
+C03	modificada	Decisión del usuario (21-11-2026)	El contrato no trae la cifra; se escribe de forma explícita quién la fija.
+C03b	nueva	Decisión del usuario (21-11-2026)	Para tener la cifra que el contrato no trae (pregunta del usuario: ¿dónde se consigue?).
+D02	modificada	Decisión del usuario (21-11-2026)	Se contaban cláusulas o requisitos según el lector.
+D02b	nueva	Decisión del usuario (21-11-2026)	Complemento de D02: el Banco Mundial pone condiciones por categoría o para cada retiro.
+E03	reemplazada	Decisión del usuario (21-11-2026)	Se divide en E03a–E03c: el usuario indicó que la gestión de las adquisiciones es central para la ejecución.
+E03a	nueva	Decisión del usuario (21-11-2026)	Detalle de compras pedido por el usuario.
+E03b	nueva	Decisión del usuario (21-11-2026)	Detalle de compras pedido por el usuario.
+E03c	nueva	Decisión del usuario (21-11-2026)	Detalle de compras pedido por el usuario.
+E05	reemplazada	Decisión del usuario (21-11-2026)	Se divide en E05a–E05d: la revisión previa (no objeción) define los tiempos de ejecución.
+E05a	nueva	Decisión del usuario (21-11-2026)	Detalle de la no objeción pedido por el usuario.
+E05b	nueva	Decisión del usuario (21-11-2026)	Detalle de la no objeción pedido por el usuario.
+E05c	nueva	Decisión del usuario (21-11-2026)	Detalle de la no objeción pedido por el usuario.
+E05d	nueva	Decisión del usuario (21-11-2026)	Detalle de la no objeción pedido por el usuario.
+E12	nueva	Propuesta de Claude tras el piloto (por validar)	Los contratos de 2012 y 2013 traen reglas de compra propias que no cabían en otra variable.
+E13	nueva	Propuesta de Claude tras el piloto (por validar)	Mide si el préstamo abre o cierra mercado a proveedores de ciertos países.
+F05	modificada	Decisión del usuario (21-11-2026)	Las listas de los dos lectores se superponían con otras variables.
+A06	modificada	Propuesta de Claude tras el piloto (por validar)	La fecha de aprobación a veces solo se deduce (8226: límite de 18 meses).
+A07	modificada	Propuesta de Claude tras el piloto (por validar)	Fechas ilegibles por OCR en los dos contratos del BIRF.
+B03	modificada	Propuesta de Claude tras el piloto (por validar)	Contratos antiguos dan fechas relativas («a más tardar a los 25 años»).
+B04	modificada	Propuesta de Claude tras el piloto (por validar)	En PE-L1101 ambos lectores contaron 41 cuotas; la VPP del contrato implica 40.
+D07	modificada	Propuesta de Claude tras el piloto (por validar)	Componentes numerados frente a líneas del cuadro de costos.
+F02	reemplazada	Propuesta de Claude tras el piloto (por validar)	Se divide en frecuencia y auditor: el BIRF da la frecuencia pero no quién audita.
+F02a	nueva	Propuesta de Claude tras el piloto (por validar)	División de F02.
+F02b	nueva	Propuesta de Claude tras el piloto (por validar)	División de F02.
+G02	modificada	Propuesta de Claude tras el piloto (por validar)	No estaba claro si la asignación presupuestaria cuenta como traspaso.
+D02	modificada	Decisión del usuario (21-11-2026, segunda ronda)	Decisión 1: solo la cláusula oficial; lista de cargos = 1.
+E03a	modificada	Decisión del usuario (21-11-2026, segunda ronda)	Decisión 2.
+E12	modificada	Decisión del usuario (21-11-2026, segunda ronda)	Decisión 3: solo lo negociado.
+E13	modificada	Decisión del usuario (21-11-2026, segunda ronda)	Decisión 4: la regla cambió de documento, no desapareció.
+A06	modificada	Decisión del usuario (21-11-2026, segunda ronda)	Decisión 5: deducción aceptada y contrastada con los datos abiertos del BID (coincidió en los 7 casos comparables).
+D02c	nueva	Decisión del usuario (21-11-2026, segunda ronda)	Decisión 1: los candados fuera de la cláusula oficial van aparte.
