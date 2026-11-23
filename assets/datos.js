@@ -25,6 +25,19 @@ const NOMBRES = {
   "BIRF-8517": "Línea 2 del Metro de Lima",
   "BIRF-8562": "Transporte subnacional",
   "BIRF-8680": "Calidad ambiental (OEFA)",
+  "BIRF-8682": "Innovación (FONDECYT)",
+  "BIRF-8740": "Gestión de recursos hídricos (ANA)",
+  "BIRF-8975": "Servicios de justicia",
+  "BIRF-9035": "Catastro urbano",
+  "BIRF-9039": "Sistema de emergencias 911",
+  "BIRF-9040": "Metropolitano: extensión norte",
+  "BIRF-9288": "Electrificación (MINEM)",
+  "BIRF-9327": "Vacunación COVID-19",
+  "BIRF-9334": "Innovación II",
+  "BIRF-9616": "Riego resiliente al clima",
+  "BIRF-9717": "Focalización de programas sociales (SINAFO)",
+  "BIRF-9733": "Gestión del tránsito de Lima",
+  "BIRF-9874": "Aguas residuales y economía circular",
 };
 
 // Lector de TSV: respeta campos entre comillas (las comillas internas van dobladas)

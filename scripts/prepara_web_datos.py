@@ -27,16 +27,18 @@ leer(S / "cambios_v21.tsv").to_csv(D / "cambios_ficha.tsv", sep="\t", index=Fals
 # 2) Concordancia de las dos muestras de doble lectura en una sola tabla
 c1 = leer(S / "comparacion_v2.tsv"); c1.insert(0, "muestra", "tanda 1 (BID)")
 c2 = leer(S / "comparacion_v21_t2.tsv"); c2.insert(0, "muestra", "tanda 2 (BIRF)")
+c3 = leer(S / "comparacion_v21_t3.tsv"); c3.insert(0, "muestra", "tanda 3 (BIRF)")
 cols = ["muestra", "contrato", "id", "variable", "veredicto", "valor_1", "estado_1", "valor_2", "estado_2"]
-pd.concat([c1[cols], c2[cols]]).to_csv(D / "concordancia_muestras.tsv", sep="\t", index=False)
+pd.concat([c1[cols], c2[cols], c3[cols]]).to_csv(D / "concordancia_muestras.tsv", sep="\t", index=False)
 
 # 3) Fechas oficiales: datos abiertos del BID y API del Banco Mundial + Finances One
 filas = []
 for l in open(S / "idb_fechas.txt", encoding="utf-8"):
     cod, resto = l.strip().split(" ", 1); t = ast.literal_eval(resto)
     if t: filas.append(("BID-" + cod, t[0][0], t[0][1], "", "Datos abiertos del BID (data.iadb.org)"))
-api = leer(S / "bm_api.tsv").set_index("contrato")
-for l in open(S / "bm_firmas.txt", encoding="utf-8"):
+api = pd.concat([leer(S / "bm_api.tsv"), leer(S / "bm_api_t3.tsv")]).set_index("contrato")
+lineas = open(S / "bm_firmas.txt", encoding="utf-8").read().splitlines() + [l.split("|")[0] for l in open(S / "bm_firmas_t3.txt", encoding="utf-8").read().splitlines()]
+for l in lineas:
     n, f = l.split(); c = "BIRF-" + n
     firma = datetime.strptime(f, "%d-%b-%Y").strftime("%Y-%m-%d")
     filas.append((c, api.loc[c, "aprobacion_api"], firma, api.loc[c, "cierre_final_api"], "API del Banco Mundial (aprobación y cierre) y Finances One (firma)"))

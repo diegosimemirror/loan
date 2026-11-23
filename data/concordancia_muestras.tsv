@@ -265,3 +265,204 @@ tanda 2 (BIRF)	BIRF-8468	H01	solución de controversias	coincide	remite a las Ge
 tanda 2 (BIRF)	BIRF-8468	I01	número de modificaciones	coincide	0	0	0	0
 tanda 2 (BIRF)	BIRF-8468	I02	qué cambian las modificaciones	difiere (valor)		no aplica	no aplica	no aplica
 tanda 2 (BIRF)	BIRF-8468	I03	extensión del plazo para desembolsar	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-8740	A01	código de operación	coincide	P151851	metadato	P151851	metadato
+tanda 3 (BIRF)	BIRF-8740	A02	número de préstamo	coincide	8740-PE	dato	8740-PE	dato
+tanda 3 (BIRF)	BIRF-8740	A03	prestatario	coincide	República del Perú	dato	República del Perú	dato
+tanda 3 (BIRF)	BIRF-8740	A04	organismo ejecutor	parcial (texto)	Autoridad Nacional del Agua (ANA), mediante la PIU (UE 002 Modernización de la Gestión de los Recursos Hídricos), en coordinación con MINEDU y SENAMHI	dato	ANA (Autoridad Nacional del Agua), a través de la PIU (UE-002 Modernización de la Gestión de los Recursos Hídricos), en coordinación con MINEDU (Parte 2(b)(iv)) y SENAMHI (Parte 1(a)(i))	dato
+tanda 3 (BIRF)	BIRF-8740	A05	sector u objeto	parcial (texto)	Fortalecer la capacidad de las instituciones de gestión de recursos hídricos para planificar, monitorear y gestionar el agua a nivel nacional y en cuencas seleccionadas	dato	Fortalecer la capacidad de las instituciones de gestión de recursos hídricos para planificar, monitorear y gestionar el agua a nivel nacional y en cuencas seleccionadas (gestión integrada de recursos hídricos)	dato
+tanda 3 (BIRF)	BIRF-8740	A06	fecha de aprobación del banco	coincide		NA		NA
+tanda 3 (BIRF)	BIRF-8740	A07	fecha de firma	coincide	2017-09-25	dato	2017-09-25	dato
+tanda 3 (BIRF)	BIRF-8740	A08	monto del préstamo	coincide	40000000	dato	40000000	dato
+tanda 3 (BIRF)	BIRF-8740	A09	moneda	coincide	USD	dato	USD	dato
+tanda 3 (BIRF)	BIRF-8740	A10	condiciones generales aplicables	parcial (texto)	International Bank for Reconstruction and Development General Conditions for Loans, 12 de marzo de 2012, con las modificaciones de la Sección II del Apéndice	dato	IBRD General Conditions for Loans, 2012-03-12, con las modificaciones de la Sec. II del Apéndice	dato
+tanda 3 (BIRF)	BIRF-8740	B01	plazo para desembolsar	coincide	2022-12-30	dato	2022-12-30	dato
+tanda 3 (BIRF)	BIRF-8740	B02	fecha de la primera cuota de capital	coincide	2022-10-15	dato	2022-10-15	dato
+tanda 3 (BIRF)	BIRF-8740	B03	fecha de la última cuota de capital	coincide	2024-04-15	dato	2024-04-15	dato
+tanda 3 (BIRF)	BIRF-8740	B04	número de cuotas	coincide	4	calculado	4	calculado
+tanda 3 (BIRF)	BIRF-8740	B05	frecuencia de las cuotas	coincide	semestral	dato	semestral	dato
+tanda 3 (BIRF)	BIRF-8740	B06	vida promedio ponderada (VPP)	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-8740	B07	perfil de amortización	coincide	porcentajes variables	dato	porcentajes variables	dato
+tanda 3 (BIRF)	BIRF-8740	B08	opciones de conversión o cobertura	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-8740	C01	tasa base	coincide	Reference Rate	dato	Reference Rate	dato
+tanda 3 (BIRF)	BIRF-8740	C02	tipo de margen	coincide	Fixed Spread	dato	Fixed Spread	dato
+tanda 3 (BIRF)	BIRF-8740	C03	valor del margen	coincide	lo fija el banco según su política	remite	lo fija el banco según su política	remite
+tanda 3 (BIRF)	BIRF-8740	C03b	margen vigente al firmar (fuente externa)	coincide		NA		NA
+tanda 3 (BIRF)	BIRF-8740	C04	frecuencia de pago de intereses	coincide	semestral (15 de abril y 15 de octubre)	dato	semestral (15 de abril y 15 de octubre)	dato
+tanda 3 (BIRF)	BIRF-8740	C05	comisión de compromiso o de crédito	coincide	0.25	dato	0.25	dato
+tanda 3 (BIRF)	BIRF-8740	C06	comisión inicial (front-end fee)	coincide	0.25	dato	0.25	dato
+tanda 3 (BIRF)	BIRF-8740	C07	gastos de inspección y vigilancia	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-8740	D01	condiciones previas al primer desembolso	parcial (texto)	pago íntegro del Front-end Fee	dato	Pago total del Front-end Fee al banco	dato
+tanda 3 (BIRF)	BIRF-8740	D02	número de condiciones previas especiales	coincide	1	calculado	1	calculado
+tanda 3 (BIRF)	BIRF-8740	D02b	alcance de las condiciones previas	coincide	todo el préstamo	dato	todo el préstamo	dato
+tanda 3 (BIRF)	BIRF-8740	D02c	otras condiciones de desembolso (fuera de la cláusula)	difiere (estado)	0	0	2	calculado
+tanda 3 (BIRF)	BIRF-8740	D03	condiciones de entrada en vigencia	parcial (texto)	Manual Operativo adoptado por ANA, satisfactorio al banco; contratación por ANA del director ejecutivo, del especialista de finanzas y administración y del especialista de adquisiciones de la PIU	dato	(a) Manual Operativo adoptado por ANA a satisfacción del banco; (b) contratación por ANA del director ejecutivo, el especialista en finanzas y administración y el especialista en adquisiciones de la PIU	dato
+tanda 3 (BIRF)	BIRF-8740	D04	plazo para cumplir condiciones o entrar en vigencia	parcial (texto)	90 días después de la fecha del contrato	dato	90 días desde la fecha del contrato	dato
+tanda 3 (BIRF)	BIRF-8740	D05	financiamiento retroactivo o reconocimiento de gastos	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-8740	D06	anticipo de fondos o cuenta designada	difiere (valor)	remite a la Disbursement Letter	remite	remite a las instrucciones de desembolso del banco (Disbursement Guidelines for Investment Project Financing, febrero 2017)	remite
+tanda 3 (BIRF)	BIRF-8740	D07	número de componentes o categorías	coincide	3	calculado	3	calculado
+tanda 3 (BIRF)	BIRF-8740	D08	plazo para iniciar obras	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-8740	E01	política de adquisiciones de bienes y obras	difiere (valor)	Procurement Guidelines: «Guidelines: Procurement of Goods, Works and Non-consulting Services under IBRD Loans and IDA Credits and Grants by World Bank Borrowers», enero 2011 (rev. julio 2014)	dato	Procurement Guidelines del BIRF/AIF (bienes, obras y servicios distintos de consultoría), enero 2011, revisadas julio 2014	dato
+tanda 3 (BIRF)	BIRF-8740	E02	política de consultores	difiere (valor)	Consultant Guidelines: «Guidelines: Selection and Employment of Consultants under IBRD Loans and IDA Credits and Grants by World Bank Borrowers», enero 2011 (rev. julio 2014)	dato	Consultant Guidelines del BIRF/AIF, enero 2011, revisadas julio 2014	dato
+tanda 3 (BIRF)	BIRF-8740	E03a	uso del sistema o subsistema de país	difiere (valor)	no	0	0	0
+tanda 3 (BIRF)	BIRF-8740	E03b	licitación pública nacional (LPN)	coincide	parcial	dato	parcial	dato
+tanda 3 (BIRF)	BIRF-8740	E03c	umbral de licitación internacional	parcial (texto)	según el Procurement Plan	remite	Procurement Plan	remite
+tanda 3 (BIRF)	BIRF-8740	E04	plan de adquisiciones aprobado por el banco	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-8740	E05a	dónde se define la revisión previa (no objeción)	coincide	Procurement Plan	dato	Procurement Plan	dato
+tanda 3 (BIRF)	BIRF-8740	E05b	umbrales de revisión previa	coincide	según el Procurement Plan	remite	según el Procurement Plan	remite
+tanda 3 (BIRF)	BIRF-8740	E05c	actualización del plan de adquisiciones	coincide	al menos una vez al año, o según se necesite	dato	al menos una vez al año, o según se necesite	dato
+tanda 3 (BIRF)	BIRF-8740	E05d	sistema de seguimiento del plan	coincide	STEP	dato	STEP	dato
+tanda 3 (BIRF)	BIRF-8740	E06	aporte local (monto)	difiere (estado)	remite al Manual Operativo y al Estudio de Factibilidad	remite	no aplica	no aplica
+tanda 3 (BIRF)	BIRF-8740	E07	aporte local (% del costo total)	difiere (estado)		NA	no aplica	no aplica
+tanda 3 (BIRF)	BIRF-8740	E08	cofinanciamiento paralelo	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-8740	E09	manual operativo	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-8740	E10	instrumento ambiental y social	parcial (texto)	Environmental and Social Management Framework (ESMF) e Indigenous Peoples Planning Framework (IPPF), con Bank Safeguard Policies	dato	Environmental and Social Management Framework (ESMF) e Indigenous Peoples Planning Framework (IPPF); Bank Safeguard Policies	dato
+tanda 3 (BIRF)	BIRF-8740	E11	unidad ejecutora y personal exigido	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-8740	E12	condiciones especiales de adquisición	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-8740	E13	elegibilidad por origen	coincide	remite a la política del banco	remite	remite a la política del banco	remite
+tanda 3 (BIRF)	BIRF-8740	F01	informes de progreso	coincide	semestral	dato	semestral	dato
+tanda 3 (BIRF)	BIRF-8740	F02a	auditoría: frecuencia y plazo	parcial (texto)	anual (año fiscal de ANA u otro periodo acordado); entrega 6 meses después del cierre del periodo	dato	anual (ejercicio fiscal de ANA), dentro de 6 meses tras el cierre del período	dato
+tanda 3 (BIRF)	BIRF-8740	F02b	auditoría: quién audita	parcial (texto)	remite a las General Conditions	remite	remite a General Conditions 5.09(b)	remite
+tanda 3 (BIRF)	BIRF-8740	F03	evaluación de resultados	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-8740	F04	causales especiales de suspensión o vencimiento anticipado	parcial (texto)	reforma, suspensión o derogación de la legislación de ANA que afecte su capacidad de cumplir (suspensión); el mismo evento es causal de vencimiento anticipado	dato	Suspensión: modificación, suspensión o derogación de la legislación de ANA que afecte su capacidad de cumplir; vencimiento anticipado: el mismo evento	dato
+tanda 3 (BIRF)	BIRF-8740	F05	otras obligaciones especiales	difiere (valor)	Plan de Acción Anual (30 días antes de cada año, aprobado por el prestatario y satisfactorio al banco); ejecutar las Partes 2(b)(iv) y 1(a)(i) según los convenios con MINEDU y SENAMHI, sin enmendarlos sin acuerdo del banco; convenios con el gobierno regional antes de actividades en cada presa seleccionada; información de seguridad de presas al banco y, si hay alto riesgo, panel independiente de expertos y ejecución del plan por el dueño de la presa; informes financieros intermedios no auditados por semestre (45 días)	dato	Comité Directivo del Proyecto (60 días); Plan de Acción Anual; ejecución de las Partes 2(b)(iv) y 1(a)(i) según los convenios con MINEDU y SENAMHI; panel de expertos independientes y plan de seguridad para presas de alto riesgo; provisión de fondos y recursos por ANA (Sec. V)	dato
+tanda 3 (BIRF)	BIRF-8740	G01	garante	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-8740	G02	convenio de traspaso de recursos	coincide	no	dato	no	dato
+tanda 3 (BIRF)	BIRF-8740	G03	cuenta o fideicomiso como garantía	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-8740	H01	solución de controversias	coincide	remite a las General Conditions	remite	remite a las General Conditions	remite
+tanda 3 (BIRF)	BIRF-8740	I01	número de modificaciones	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-8740	I02	qué cambian las modificaciones	difiere (estado)	0	0	no aplica	no aplica
+tanda 3 (BIRF)	BIRF-8740	I03	extensión del plazo para desembolsar	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9327	A01	código de operación	coincide	P178181	metadato	P178181	metadato
+tanda 3 (BIRF)	BIRF-9327	A02	número de préstamo	coincide	9327-PE	dato	9327-PE	dato
+tanda 3 (BIRF)	BIRF-9327	A03	prestatario	parcial (texto)	República del Perú (Republic of Peru)	dato	República del Perú	dato
+tanda 3 (BIRF)	BIRF-9327	A04	organismo ejecutor	parcial (texto)	Ministerio de Economía y Finanzas, mediante la DGTP (unidad de implementación PIU en su Dirección de Crédito), con apoyo del MINSA	dato	DGTP (Dirección General del Tesoro Público, MEF), mediante una PIU en su Dirección de Crédito, con apoyo del MINSA (CENARES, Dirección de Inmunizaciones, DIGESA)	dato
+tanda 3 (BIRF)	BIRF-9327	A05	sector u objeto	coincide	Aumentar la cobertura de vacunación contra la COVID-19 en la población del Perú	dato	Aumentar la cobertura de vacunación contra la COVID-19 en la población del Perú	dato
+tanda 3 (BIRF)	BIRF-9327	A06	fecha de aprobación del banco	coincide		NA		NA
+tanda 3 (BIRF)	BIRF-9327	A07	fecha de firma	coincide	2022-07-14	dato	2022-07-14	dato
+tanda 3 (BIRF)	BIRF-9327	A08	monto del préstamo	coincide	500000000	dato	500000000	dato
+tanda 3 (BIRF)	BIRF-9327	A09	moneda	coincide	USD	dato	USD	dato
+tanda 3 (BIRF)	BIRF-9327	A10	condiciones generales aplicables	parcial (texto)	IBRD General Conditions for IBRD Financing, Investment Project Financing, 14-12-2018 (revisadas el 1-08-2020, 21-12-2020 y 1-04-2021)	dato	IBRD General Conditions for IBRD Financing, Investment Project Financing, 2018-12-14 (revisadas 2020-08-01, 2020-12-21, 2021-04-01 y 2022-01-01)	dato
+tanda 3 (BIRF)	BIRF-9327	B01	plazo para desembolsar	coincide	2023-12-31	dato	2023-12-31	dato
+tanda 3 (BIRF)	BIRF-9327	B02	fecha de la primera cuota de capital	coincide	2027-06-15	dato	2027-06-15	dato
+tanda 3 (BIRF)	BIRF-9327	B03	fecha de la última cuota de capital	coincide	2036-06-15	dato	2036-06-15	dato
+tanda 3 (BIRF)	BIRF-9327	B04	número de cuotas	coincide	19	calculado	19	calculado
+tanda 3 (BIRF)	BIRF-9327	B05	frecuencia de las cuotas	coincide	semestral	dato	semestral	dato
+tanda 3 (BIRF)	BIRF-9327	B06	vida promedio ponderada (VPP)	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9327	B07	perfil de amortización	coincide	porcentajes variables	dato	porcentajes variables	dato
+tanda 3 (BIRF)	BIRF-9327	B08	opciones de conversión o cobertura	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-9327	C01	tasa base	coincide	Reference Rate	dato	Reference Rate	dato
+tanda 3 (BIRF)	BIRF-9327	C02	tipo de margen	coincide	Variable Spread	dato	Variable Spread	dato
+tanda 3 (BIRF)	BIRF-9327	C03	valor del margen	coincide	lo fija el banco según su política	remite	lo fija el banco según su política	remite
+tanda 3 (BIRF)	BIRF-9327	C03b	margen vigente al firmar (fuente externa)	coincide		NA		NA
+tanda 3 (BIRF)	BIRF-9327	C04	frecuencia de pago de intereses	coincide	semestral (15 de junio y 15 de diciembre)	dato	semestral (15 de junio y 15 de diciembre)	dato
+tanda 3 (BIRF)	BIRF-9327	C05	comisión de compromiso o de crédito	coincide	0.25	dato	0.25	dato
+tanda 3 (BIRF)	BIRF-9327	C06	comisión inicial (front-end fee)	coincide	0.25	dato	0.25	dato
+tanda 3 (BIRF)	BIRF-9327	C07	gastos de inspección y vigilancia	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9327	D01	condiciones previas al primer desembolso	parcial (texto)	Los retiros retroactivos para compras de vacunas desplegadas antes de adoptar el ESMF exigen que se haya realizado y finalizado una Rapid E&S Audit conforme al ESCP	dato	Rapid E&S Audit realizada y finalizada conforme al ESCP, para retiros retroactivos por vacunas desplegadas antes de adoptar el ESMF	dato
+tanda 3 (BIRF)	BIRF-9327	D02	número de condiciones previas especiales	coincide	1	calculado	1	calculado
+tanda 3 (BIRF)	BIRF-9327	D02b	alcance de las condiciones previas	parcial (texto)	Financiamiento retroactivo de la Categoría 1 (vacunas desplegadas antes de adoptar el ESMF)	dato	retiros retroactivos de la categoría 1 (Parte 1) por vacunas desplegadas antes de adoptar el ESMF	dato
+tanda 3 (BIRF)	BIRF-9327	D02c	otras condiciones de desembolso (fuera de la cláusula)	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9327	D03	condiciones de entrada en vigencia	parcial (texto)	(a) Manual Operativo del Proyecto finalizado y adoptado por la DGTP con apoyo del MINSA; (b) designación en el MINSA de un especialista socioambiental a tiempo completo, un especialista social y un especialista en salud ambiental; (c) designación en la PIU de un especialista en adquisiciones y uno en gestión financiera a tiempo parcial	dato	(a) Project Operational Manual finalizado y adoptado por la DGTP con apoyo del MINSA; (b) designación en el MINSA de un especialista socioambiental a tiempo completo, un especialista social y un especialista en salud ambiental; (c) designación en la PIU de un especialista en adquisiciones y uno en gestión financiera a tiempo parcial	dato
+tanda 3 (BIRF)	BIRF-9327	D04	plazo para cumplir condiciones o entrar en vigencia	parcial (texto)	90 días después de la Signature Date	dato	90 días desde la Signature Date	dato
+tanda 3 (BIRF)	BIRF-9327	D05	financiamiento retroactivo o reconocimiento de gastos	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-9327	D06	anticipo de fondos o cuenta designada	coincide	remite a la Disbursement and Financial Information Letter	remite	remite a la Disbursement and Financial Information Letter	remite
+tanda 3 (BIRF)	BIRF-9327	D07	número de componentes o categorías	coincide	2	calculado	2	calculado
+tanda 3 (BIRF)	BIRF-9327	D08	plazo para iniciar obras	difiere (valor)		no aplica	no aplica	no aplica
+tanda 3 (BIRF)	BIRF-9327	E01	política de adquisiciones de bienes y obras	coincide	World Bank Procurement Regulations for IPF Borrowers, noviembre 2020	dato	World Bank Procurement Regulations for IPF Borrowers, noviembre 2020	dato
+tanda 3 (BIRF)	BIRF-9327	E02	política de consultores	parcial (texto)	World Bank Procurement Regulations for IPF Borrowers, noviembre 2020 (mismo documento que E01)	dato	World Bank Procurement Regulations for IPF Borrowers, noviembre 2020	dato
+tanda 3 (BIRF)	BIRF-9327	E03a	uso del sistema o subsistema de país	difiere (estado)	remite a las Procurement Regulations (vía General Conditions)	remite	0	0
+tanda 3 (BIRF)	BIRF-9327	E03b	licitación pública nacional (LPN)	difiere (estado)	remite a las Procurement Regulations (vía General Conditions)	remite	0	0
+tanda 3 (BIRF)	BIRF-9327	E03c	umbral de licitación internacional	parcial (texto)	remite a las Procurement Regulations (vía General Conditions)	remite	Procurement Regulations (vía General Conditions)	remite
+tanda 3 (BIRF)	BIRF-9327	E04	plan de adquisiciones aprobado por el banco	coincide	remite a las General Conditions / Procurement Regulations	remite	remite a las Procurement Regulations	remite
+tanda 3 (BIRF)	BIRF-9327	E05a	dónde se define la revisión previa (no objeción)	parcial (texto)	Procurement Regulations (vía General Conditions)	remite	Procurement Regulations	remite
+tanda 3 (BIRF)	BIRF-9327	E05b	umbrales de revisión previa	parcial (texto)	remite a las Procurement Regulations (vía General Conditions)	remite	remite a las Procurement Regulations	remite
+tanda 3 (BIRF)	BIRF-9327	E05c	actualización del plan de adquisiciones	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9327	E05d	sistema de seguimiento del plan	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9327	E06	aporte local (monto)	difiere (valor)		no aplica	no aplica	no aplica
+tanda 3 (BIRF)	BIRF-9327	E07	aporte local (% del costo total)	difiere (valor)		no aplica	no aplica	no aplica
+tanda 3 (BIRF)	BIRF-9327	E08	cofinanciamiento paralelo	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9327	E09	manual operativo	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-9327	E10	instrumento ambiental y social	parcial (texto)	ESCP (Environmental and Social Commitment Plan, 29-11-2021) y Environmental and Social Standards; además ESMF, SEP y Rapid E&S Audit previstos en el ESCP	dato	Environmental and Social Commitment Plan (ESCP, 2021-11-29) y Environmental and Social Standards; además ESMF, SEP y Rapid E&S Audit	dato
+tanda 3 (BIRF)	BIRF-9327	E11	unidad ejecutora y personal exigido	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-9327	E12	condiciones especiales de adquisición	parcial (texto)	1: las vacunas del proyecto deben cumplir los Vaccine Approval Criteria	dato	1: las vacunas deben cumplir los Vaccine Approval Criteria	dato
+tanda 3 (BIRF)	BIRF-9327	E13	elegibilidad por origen	coincide	remite a la política del banco	remite	remite a la política del banco	remite
+tanda 3 (BIRF)	BIRF-9327	F01	informes de progreso	coincide	semestral	dato	semestral	dato
+tanda 3 (BIRF)	BIRF-9327	F02a	auditoría: frecuencia y plazo	parcial (texto)	remite a las General Conditions (Sección 5.09)	remite	remite a General Conditions 5.09	remite
+tanda 3 (BIRF)	BIRF-9327	F02b	auditoría: quién audita	coincide	auditoría independiente	dato	auditoría independiente	dato
+tanda 3 (BIRF)	BIRF-9327	F03	evaluación de resultados	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9327	F04	causales especiales de suspensión o vencimiento anticipado	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9327	F05	otras obligaciones especiales	parcial (texto)	Coordinación con CENARES, Dirección de Inmunizaciones y DIGESA y aplicación del Plan Nacional de Vacunación COVID-19 (Sch. 2, I.A.2(a)); el MINSA reporta a la DGTP datos de SUSALUD, Defensoría del Pueblo y Contraloría (I.A.2(b)); reglas para el uso de fuerzas militares o de seguridad (I.D y I.E.6); mecanismo de quejas (I.E.5); informes sin datos personales (II)	dato	ejecución con CENARES, Dirección de Inmunizaciones y DIGESA según el Plan Nacional de Vacunación COVID-19; reporte de datos de SUSALUD, Defensoría y Contraloría; reglas para el uso de fuerzas militares o de seguridad (aviso previo, control MININTER/MINDEF, propiedad de bienes); no incluir datos personales en la información al banco	dato
+tanda 3 (BIRF)	BIRF-9327	G01	garante	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9327	G02	convenio de traspaso de recursos	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9327	G03	cuenta o fideicomiso como garantía	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9327	H01	solución de controversias	coincide	remite a las General Conditions	remite	remite a las General Conditions	remite
+tanda 3 (BIRF)	BIRF-9327	I01	número de modificaciones	coincide	1	calculado	1	calculado
+tanda 3 (BIRF)	BIRF-9327	I02	qué cambian las modificaciones	parcial (texto)	2022-07-19: corrigendum que reemplaza la definición de General Conditions del Apéndice por la versión revisada al 1-01-2022, acordada en la negociación	dato	2022-07-19: corrige la definición de General Conditions del Apéndice para incluir la revisión del 2022-01-01	dato
+tanda 3 (BIRF)	BIRF-9327	I03	extensión del plazo para desembolsar	difiere (estado)	no	0	no	dato
+tanda 3 (BIRF)	BIRF-9616	A01	código de operación	coincide	P179037	metadato	P179037	metadato
+tanda 3 (BIRF)	BIRF-9616	A02	número de préstamo	coincide	9616-PE	dato	9616-PE	dato
+tanda 3 (BIRF)	BIRF-9616	A03	prestatario	difiere (valor)	Republic of Peru	dato	República del Perú	dato
+tanda 3 (BIRF)	BIRF-9616	A04	organismo ejecutor	parcial (texto)	MIDAGRI, a través del PSI (Programa Subsectorial de Irrigaciones)	dato	PSI (Programa Subsectorial de Irrigaciones), unidad ejecutora del MIDAGRI	dato
+tanda 3 (BIRF)	BIRF-9616	A05	sector u objeto	parcial (texto)	Riego tecnificado: sostenibilidad y eficacia de los servicios de agua para riego y productividad del agua en fincas familiares vulnerables al cambio climático	dato	Mejorar la sostenibilidad y eficacia de los servicios de agua para riego y la productividad del agua en fincas familiares vulnerables al cambio climático (riego tecnificado)	dato
+tanda 3 (BIRF)	BIRF-9616	A06	fecha de aprobación del banco	coincide		NA		NA
+tanda 3 (BIRF)	BIRF-9616	A07	fecha de firma	coincide	2024-02-27	dato	2024-02-27	dato
+tanda 3 (BIRF)	BIRF-9616	A08	monto del préstamo	coincide	100000000	dato	100000000	dato
+tanda 3 (BIRF)	BIRF-9616	A09	moneda	coincide	USD	dato	USD	dato
+tanda 3 (BIRF)	BIRF-9616	A10	condiciones generales aplicables	parcial (texto)	IBRD General Conditions for IBRD Financing, Investment Project Financing, 14-12-2018 (última revisión 15-07-2023)	dato	IBRD General Conditions for IBRD Financing, Investment Project Financing, 2018-12-14 (última revisión 2023-07-15)	dato
+tanda 3 (BIRF)	BIRF-9616	B01	plazo para desembolsar	coincide	2029-12-31	dato	2029-12-31	dato
+tanda 3 (BIRF)	BIRF-9616	B02	fecha de la primera cuota de capital	coincide	2030-11-15	dato	2030-11-15	dato
+tanda 3 (BIRF)	BIRF-9616	B03	fecha de la última cuota de capital	coincide	2041-05-15	dato	2041-05-15	dato
+tanda 3 (BIRF)	BIRF-9616	B04	número de cuotas	coincide	22	calculado	22	calculado
+tanda 3 (BIRF)	BIRF-9616	B05	frecuencia de las cuotas	coincide	semestral	dato	semestral	dato
+tanda 3 (BIRF)	BIRF-9616	B06	vida promedio ponderada (VPP)	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9616	B07	perfil de amortización	coincide	porcentajes variables	dato	porcentajes variables	dato
+tanda 3 (BIRF)	BIRF-9616	B08	opciones de conversión o cobertura	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-9616	C01	tasa base	coincide	Reference Rate	dato	Reference Rate	dato
+tanda 3 (BIRF)	BIRF-9616	C02	tipo de margen	coincide	Variable Spread	dato	Variable Spread	dato
+tanda 3 (BIRF)	BIRF-9616	C03	valor del margen	coincide	lo fija el banco según su política	remite	lo fija el banco según su política	remite
+tanda 3 (BIRF)	BIRF-9616	C03b	margen vigente al firmar (fuente externa)	coincide		NA		NA
+tanda 3 (BIRF)	BIRF-9616	C04	frecuencia de pago de intereses	coincide	semestral (15 de mayo y 15 de noviembre)	dato	semestral (15 de mayo y 15 de noviembre)	dato
+tanda 3 (BIRF)	BIRF-9616	C05	comisión de compromiso o de crédito	coincide	0.25	dato	0.25	dato
+tanda 3 (BIRF)	BIRF-9616	C06	comisión inicial (front-end fee)	coincide	0.25	dato	0.25	dato
+tanda 3 (BIRF)	BIRF-9616	C07	gastos de inspección y vigilancia	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9616	D01	condiciones previas al primer desembolso	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9616	D02	número de condiciones previas especiales	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9616	D02b	alcance de las condiciones previas	coincide	no aplica	no aplica	no aplica	no aplica
+tanda 3 (BIRF)	BIRF-9616	D02c	otras condiciones de desembolso (fuera de la cláusula)	coincide	1	calculado	1	calculado
+tanda 3 (BIRF)	BIRF-9616	D03	condiciones de entrada en vigencia	parcial (texto)	Operational Manual preparado y adoptado por el prestatario, a través del PSI, a satisfacción del banco	dato	Manual Operativo preparado y adoptado por el PSI a satisfacción del banco	dato
+tanda 3 (BIRF)	BIRF-9616	D04	plazo para cumplir condiciones o entrar en vigencia	parcial (texto)	90 días después de la Signature Date	dato	90 días desde la Signature Date	dato
+tanda 3 (BIRF)	BIRF-9616	D05	financiamiento retroactivo o reconocimiento de gastos	coincide	no	dato	no	dato
+tanda 3 (BIRF)	BIRF-9616	D06	anticipo de fondos o cuenta designada	coincide	remite a la Disbursement and Financial Information Letter	remite	remite a la Disbursement and Financial Information Letter	remite
+tanda 3 (BIRF)	BIRF-9616	D07	número de componentes o categorías	coincide	3	calculado	3	calculado
+tanda 3 (BIRF)	BIRF-9616	D08	plazo para iniciar obras	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9616	E01	política de adquisiciones de bienes y obras	parcial (texto)	World Bank Procurement Regulations for IPF Borrowers, septiembre 2023	dato	World Bank Procurement Regulations for IPF Borrowers, setiembre 2023	dato
+tanda 3 (BIRF)	BIRF-9616	E02	política de consultores	parcial (texto)	World Bank Procurement Regulations for IPF Borrowers, septiembre 2023	dato	World Bank Procurement Regulations for IPF Borrowers, setiembre 2023	dato
+tanda 3 (BIRF)	BIRF-9616	E03a	uso del sistema o subsistema de país	difiere (valor)	no	0	0	0
+tanda 3 (BIRF)	BIRF-9616	E03b	licitación pública nacional (LPN)	difiere (valor)	no	0	0	0
+tanda 3 (BIRF)	BIRF-9616	E03c	umbral de licitación internacional	difiere (estado)	0	0	Procurement Regulations (vía General Conditions)	remite
+tanda 3 (BIRF)	BIRF-9616	E04	plan de adquisiciones aprobado por el banco	coincide	remite a las General Conditions (art. V)	remite	remite a las Procurement Regulations	remite
+tanda 3 (BIRF)	BIRF-9616	E05a	dónde se define la revisión previa (no objeción)	difiere (valor)	General Conditions (art. V) y Procurement Regulations	remite	Procurement Regulations	remite
+tanda 3 (BIRF)	BIRF-9616	E05b	umbrales de revisión previa	parcial (texto)	remite a las General Conditions y Procurement Regulations	remite	remite a las Procurement Regulations	remite
+tanda 3 (BIRF)	BIRF-9616	E05c	actualización del plan de adquisiciones	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9616	E05d	sistema de seguimiento del plan	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9616	E06	aporte local (monto)	coincide	no aplica	no aplica	no aplica	no aplica
+tanda 3 (BIRF)	BIRF-9616	E07	aporte local (% del costo total)	coincide	no aplica	no aplica	no aplica	no aplica
+tanda 3 (BIRF)	BIRF-9616	E08	cofinanciamiento paralelo	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9616	E09	manual operativo	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-9616	E10	instrumento ambiental y social	parcial (texto)	ESCP (22-09-2023) y Environmental and Social Standards; ESMP por subproyecto	dato	Environmental and Social Commitment Plan (ESCP, 2023-09-22) y Environmental and Social Standards; ESMP por subproyecto	dato
+tanda 3 (BIRF)	BIRF-9616	E11	unidad ejecutora y personal exigido	coincide	sí	dato	sí	dato
+tanda 3 (BIRF)	BIRF-9616	E12	condiciones especiales de adquisición	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9616	E13	elegibilidad por origen	coincide	remite a la política del banco	remite	remite a la política del banco	remite
+tanda 3 (BIRF)	BIRF-9616	F01	informes de progreso	coincide	semestral	dato	semestral	dato
+tanda 3 (BIRF)	BIRF-9616	F02a	auditoría: frecuencia y plazo	parcial (texto)	remite a las General Conditions	remite	remite a General Conditions 5.09	remite
+tanda 3 (BIRF)	BIRF-9616	F02b	auditoría: quién audita	difiere (estado)	remite a las General Conditions	remite	auditoría externa	dato
+tanda 3 (BIRF)	BIRF-9616	F03	evaluación de resultados	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9616	F04	causales especiales de suspensión o vencimiento anticipado	parcial (texto)	Suspensión: que se tome una acción o se adopte una política que revierta acciones del proyecto y afecte de forma grave, a juicio del banco, el objetivo o la capacidad de ejecución del PSI; vencimiento anticipado: que ese hecho continúe 60 días después del aviso del banco	dato	Suspensión: acción o política que revierta acciones del proyecto y afecte el logro del objetivo o la capacidad de ejecución del PSI; vencimiento anticipado: ese evento si continúa 60 días tras el aviso del banco	dato
+tanda 3 (BIRF)	BIRF-9616	F05	otras obligaciones especiales	difiere (valor)	Crear el Project Steering Committee en 60 días desde la efectividad; firmar Institutional Cooperation Agreements con programas y entidades de MIDAGRI para las Partes A.3 y B; implantar un sistema de información financiera en 6 meses desde la efectividad	dato	Comité Directivo del Proyecto (60 días; aprueba cambios del coordinador y del personal clave del PSI); Institutional Cooperation Agreements para las Partes A.3 y B; sistema de información financiera dentro de 6 meses de la Effective Date	dato
+tanda 3 (BIRF)	BIRF-9616	G01	garante	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9616	G02	convenio de traspaso de recursos	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9616	G03	cuenta o fideicomiso como garantía	coincide	no	0	no	0
+tanda 3 (BIRF)	BIRF-9616	H01	solución de controversias	coincide	remite a las General Conditions	remite	remite a las General Conditions	remite
+tanda 3 (BIRF)	BIRF-9616	I01	número de modificaciones	coincide	0	0	0	0
+tanda 3 (BIRF)	BIRF-9616	I02	qué cambian las modificaciones	difiere (estado)		0	no aplica	no aplica
+tanda 3 (BIRF)	BIRF-9616	I03	extensión del plazo para desembolsar	coincide	no	0	no	0

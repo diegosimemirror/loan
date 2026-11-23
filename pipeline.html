@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Cómo se hizo · Préstamos multilaterales al Perú</title>
-<meta name="description" content="El flujo de trabajo, al estilo n8n: de los decretos supremos del MEF a la base de 19 contratos codificados, con cada control y decisión.">
+<meta name="description" content="El flujo de trabajo, al estilo n8n: de los decretos supremos del MEF a la base de 32 contratos codificados, con cada control y decisión.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
@@ -129,7 +129,7 @@ footer a{color:inherit}
   <div class="tablewrap"><table style="min-width:0"><thead><tr><th>Archivo</th><th>Qué contiene</th></tr></thead><tbody>
     <tr><td><code>data/prestamos_peru_2011_2026.csv</code></td><td>Tabla base: 206 operaciones con su decreto supremo y sus condiciones.</td></tr>
     <tr><td><code>data/ficha_v21.tsv</code></td><td>Las 67 preguntas, con su regla y dónde buscar.</td></tr>
-    <tr><td><code>data/base_codificada_v21.tsv</code></td><td>Las 1 273 respuestas de los 19 contratos, con cita y página.</td></tr>
+    <tr><td><code>data/base_codificada_v21.tsv</code></td><td>Las 2 144 respuestas de los 32 contratos, con cita y página.</td></tr>
     <tr><td><code>data/concordancia_muestras.tsv</code></td><td>Las dos lecturas de cada muestra, lado a lado.</td></tr>
     <tr><td><code>data/fechas_oficiales.tsv</code></td><td>Aprobación, firma y cierre real según los bancos.</td></tr>
     <tr><td><code>data/fuentes_documentos.tsv</code></td><td>El enlace oficial de cada contrato y enmienda.</td></tr>
@@ -177,7 +177,7 @@ footer a{color:inherit}
 </div>
 
 </main>
-<footer><div class="wrap">Pipeline de trabajo al 22 de noviembre de 2026: 206 operaciones, 19 contratos codificados, 67 preguntas, 1 273 respuestas y 944 citas verificadas. · Diego Sime · con Claude Code · <a href="https://github.com/diegosimemirror/loan">Repositorio</a></div></footer>
+<footer><div class="wrap">Pipeline de trabajo al 23 de noviembre de 2026: 206 operaciones, 32 contratos codificados, 67 preguntas, 2 144 respuestas y 1 483 citas verificadas. · Diego Sime · con Claude Code · <a href="https://github.com/diegosimemirror/loan">Repositorio</a></div></footer>
 
 <script>
 /* ============================================================
@@ -203,11 +203,11 @@ const PASOS = [
  {t:'R', n:'Muestra de control', con:'Un agente independiente y compara.py', dec:true, back:'Si baja el acuerdo, se revisa la ficha', ins:'2 de los 9 contratos.', met:'Segunda lectura sin ver la primera y comparación.', res:'98 % de acuerdo de fondo'},
  {t:'D', n:'Decisión: 5 reglas más', con:'El autor', dec:true, ins:'Las dudas de la tanda 1.', met:'Decidir cómo contar condiciones previas, qué es una regla de compra negociada y qué hacer cuando una regla pasa a la política del banco.', res:'Ficha v2.1: 67 preguntas'},
  {t:'R', n:'Fuentes oficiales', con:'APIs del BID y del Banco Mundial; Finances One', dec:true, back:'Si no coincide, se anota la diferencia', ins:'Las fechas deducidas de los contratos.', met:'Contrastar la aprobación y la firma, y traer la fecha de cierre real de cada proyecto.', res:'Fechas confirmadas; atrasos medidos'},
- {t:'M', n:'Tanda 2: Banco Mundial', con:'3 agentes de IA y una muestra de control', ins:'10 préstamos de inversión de 2011 a 2017, con sus enmiendas.', met:'Aplicar la ficha v2.1 y unificar criterios entre lotes.', res:'670 respuestas; 94 % de acuerdo'},
- {t:'R', n:'Verificar citas', con:'verifica_citas_v2.py', dec:true, back:'Si una cita falla, se corrige', ins:'La base unida de 19 contratos.', met:'Buscar cada cita, palabra por palabra, en la página indicada.', res:'944 citas, ninguna falla'},
+ {t:'M', n:'Tandas 2 y 3: Banco Mundial', con:'7 agentes de IA y dos muestras de control', ins:'23 préstamos de inversión de 2011 a 2026, con sus enmiendas.', met:'Aplicar la ficha v2.1 y unificar criterios entre lotes: candados de desembolso, compras sin sección propia y fechas.', res:'1 541 respuestas; 94 % y 96 % de acuerdo'},
+ {t:'R', n:'Verificar citas', con:'verifica_citas_v2.py', dec:true, back:'Si una cita falla, se corrige', ins:'La base unida de 32 contratos.', met:'Buscar cada cita, palabra por palabra, en la página indicada.', res:'1 483 citas, ninguna falla'},
  {t:'C', n:'Sitio web', con:'HTML, CSS y JavaScript, sin librerías', ins:'La base, la ficha y el simulador.', met:'Inicio con hallazgos, simulador, explorador de datos, este pipeline y el método.', res:'5 páginas'},
  {t:'P', n:'Publicar', con:'git y GitHub Pages', ins:'El sitio revisado.', met:'Subirlo al repositorio y agregarlo al portafolio.', res:'Sitio en línea'},
- {t:'D', n:'Registro y siguiente etapa', con:'Agente de IA y el autor', ins:'Las decisiones, los hallazgos y lo que falta.', met:'Anotar qué falta: 13 préstamos del Banco Mundial de 2017 a 2026, OCR de 5 escaneados y recodificar el piloto.', res:'Plan de la etapa siguiente'}
+ {t:'D', n:'Registro y siguiente etapa', con:'Agente de IA y el autor', ins:'Las decisiones, los hallazgos y lo que falta.', met:'Anotar qué falta: leer 5 contratos escaneados, recodificar el piloto y sumar los planes de adquisiciones.', res:'Plan de la etapa siguiente'}
 ];
 
 /* ============================================================

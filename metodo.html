@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Método y lecturas · Préstamos multilaterales al Perú</title>
-<meta name="description" content="Cómo se leyeron 19 contratos de préstamo con un mismo cuestionario, cómo se midió la calidad, sus límites y las lecturas recomendadas.">
+<meta name="description" content="Cómo se leyeron 32 contratos de préstamo con un mismo cuestionario, cómo se midió la calidad, sus límites y las lecturas recomendadas.">
 <link rel="stylesheet" href="assets/estilos.css">
 </head>
 <body>
@@ -55,9 +55,9 @@
   <section class="seccion prosa">
     <h2>3. Cómo se aseguró la calidad</h2>
     <ul>
-      <li><b>Dos lecturas independientes.</b> Un piloto con 5 contratos y, en cada tanda, una muestra de alrededor del 20 % la leyó un segundo lector que no vio la primera lectura. El acuerdo en el fondo fue de 94 % en el piloto, 98 % en la tanda del BID y 94 % en la del Banco Mundial. Casi todas las diferencias fueron de redacción. <a href="data/concordancia_muestras.tsv">Ver la comparación</a>.</li>
+      <li><b>Dos lecturas independientes.</b> Un piloto con 5 contratos y, en cada tanda, una muestra de alrededor del 20 % la leyó un segundo lector que no vio la primera lectura. El acuerdo en el fondo fue de 94 % en el piloto, 98 % en la tanda del BID y 94 % y 96 % en las dos tandas del Banco Mundial. Casi todas las diferencias fueron de redacción. <a href="data/concordancia_muestras.tsv">Ver la comparación</a>.</li>
       <li><b>Los desacuerdos se resolvieron como reglas.</b> Cuando dos lectores leían distinto la misma cláusula, el problema estaba en la pregunta. Se decidió una regla y se aplicó a todos los contratos. Así la ficha pasó de 56 a 67 preguntas. <a href="data/cambios_ficha.tsv">Ver cada cambio y quién lo decidió</a>.</li>
-      <li><b>Las citas se comprueban con un script.</b> Las 944 citas de la base están, palabra por palabra, en la página indicada. Los errores de tipeo del reconocimiento de texto (OCR) se copiaron tal cual.</li>
+      <li><b>Las citas se comprueban con un script.</b> Las 1 483 citas de la base están, palabra por palabra, en la página indicada. Los errores de tipeo del reconocimiento de texto (OCR) se copiaron tal cual.</li>
       <li><b>Las fechas se contrastan con fuentes oficiales.</b> Las fechas de aprobación que se dedujeron de los contratos coinciden con los datos abiertos del BID en todos los casos comparables. Las fechas de cierre real vienen de la API pública del Banco Mundial.</li>
     </ul>
   </section>
@@ -79,8 +79,8 @@
       <li><b>No es una muestra al azar.</b> Solo el BID y el Banco Mundial publican sus contratos. La CAF, el KfW, JICA y la AFD no los publican; de ellos solo hay decretos supremos con las condiciones financieras.</li>
       <li><b>Muchos archivos rotulados «contrato» no lo eran.</b> De 133 archivos del BID con ese nombre, solo 15 eran contratos. Los demás eran propuestas de préstamo, resoluciones del Directorio o informes de seguimiento.</li>
       <li><b>Las condiciones generales y los planes no están en los contratos.</b> Lo que remite a ellos se marca como «remite» y no se completa con conocimiento externo.</li>
-      <li><b>Las reestructuraciones del Banco Mundial no están en el corpus.</b> Por eso la ampliación de los plazos se mide con la fecha de cierre real de la API.</li>
-      <li><b>Faltan contratos.</b> Quedan 13 préstamos de inversión del Banco Mundial de 2017 a 2026, 5 escaneados sin texto y 5 contratos del piloto por recodificar con la ficha final.</li>
+      <li><b>Desde 2019 los contratos del Banco Mundial no traen sección de compras</b>: las reglas quedan en sus regulaciones, que no forman parte del contrato. <b>Tampoco están en el corpus sus reestructuraciones.</b> Por eso la ampliación de los plazos se mide con la fecha de cierre real de la API.</li>
+      <li><b>Faltan contratos.</b> Quedan 5 préstamos del Banco Mundial escaneados sin texto y 5 contratos del piloto por recodificar con la ficha final.</li>
       <li><b>Lectura con inteligencia artificial.</b> Los contratos los leyeron agentes de IA (Claude) con una ficha fija. El autor tomó las decisiones de método. Las citas se verifican con un script, pero la interpretación jurídica de cada cláusula debe confirmarla un especialista.</li>
     </ul>
   </section>
